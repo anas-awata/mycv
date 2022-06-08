@@ -1,4 +1,5 @@
 <template>
+  <mynav />
   <div class="home-container">
     <div class="circle"></div>
     <div class="row">
@@ -31,8 +32,10 @@
 </template>
 
 <script>
+import mynav from "../components/myNav.vue";
 export default {
   name: "my-home",
+  components: { mynav },
 };
 </script>
 <style scoped>

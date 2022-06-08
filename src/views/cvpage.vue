@@ -1,4 +1,5 @@
 <template>
+  <mynav />
   <div v-if="isMobile" class="nav-container">
     <nav>
       <router-link class="cvselectorlink" to="/pdf">CV Selector </router-link>
@@ -12,12 +13,13 @@
 </template>
 
 <script>
+import mynav from "../components/myNav.vue";
 //import theme2 from "../components/theme2/theme2.vue";
 import theme3 from "../components/theme3/theme3.vue";
 import designColor from "../components/cvSelectors/designColor.vue";
 export default {
   name: "cv-page",
-  components: { theme3, designColor },
+  components: { theme3, designColor, mynav },
   computed: {
     isMobile() {
       if (screen.width < 768) {
