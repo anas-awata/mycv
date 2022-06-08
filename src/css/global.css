@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+html ,body {
+  background-color: #fff;
+  height: 100vh;
+}

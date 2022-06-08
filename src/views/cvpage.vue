@@ -1,0 +1,42 @@
+<template>
+  <div v-if="isMobile" class="nav-container">
+    <nav>
+      <router-link class="cvselectorlink" to="/pdf">CV Selector </router-link>
+      <router-link to="/cvpage"> View CV</router-link>
+    </nav>
+  </div>
+  <div class="container">
+    <design-color />
+    <theme3 />
+  </div>
+</template>
+
+<script>
+//import theme2 from "../components/theme2/theme2.vue";
+import theme3 from "../components/theme3/theme3.vue";
+import designColor from "../components/cvSelectors/designColor.vue";
+export default {
+  name: "cv-page",
+  components: { theme3, designColor },
+  computed: {
+    isMobile() {
+      if (screen.width < 768) {
+        console.log("t");
+        return true;
+      } else {
+        console.log("f");
+        return false;
+      }
+    },
+  },
+};
+</script>
+<style scoped>
+.container {
+  margin-top: 10%;
+  border-style: none;
+}
+.nav-container {
+  margin-top: 50px;
+}
+</style>
