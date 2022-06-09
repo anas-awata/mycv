@@ -1,29 +1,27 @@
 <template>
   <body class="A4">
     <div class="sheet">
-      <button class="btn btn-print btn-sm btn-light" onClick="handlePrint()">
-        <i class="fa fa-print"></i>
-        Print
-      </button>
       <div class="two-column resume">
         <section class="resume__section resume__header">
           <div class="resume__content">
-            <h1>Thiago Braga</h1>
-            <div class="info-item">
-              <span class="info-label"
-                ><i class="fa fa-location-arrow"></i></span
-              ><span class="info-text">
-                770 Marçal de Arruda Campos St., Bauru, SP, Brazil, Zip:
-                17063-060</span
-              >
-            </div>
-            <div class="info-item">
-              <span class="info-label"><i class="fa fa-envelope"></i></span
-              ><span class="info-text">contato@thiagobraga.org</span>
-            </div>
-            <div class="info-item">
-              <span class="info-label"><i class="fa fa-phone"></i></span
-              ><span class="info-text">+55 14 99165 5873</span>
+            <h1>{{ personal["Fname"] }} {{ personal["Lname"] }}</h1>
+            <div class="row info-wrapper">
+              <div class="info-item row">
+                <span class="info-label col-2"
+                  ><i class="fa fa-location-arrow"></i></span
+                ><span class="info-text col-10">
+                  {{ personal["Address"] }}</span
+                >
+              </div>
+              <div class="info-item row">
+                <span class="info-label col-2"
+                  ><i class="fa fa-envelope"></i></span
+                ><span class="info-text col-10">{{ personal["Email"] }}</span>
+              </div>
+              <div class="info-item row">
+                <span class="info-label col-2"><i class="fa fa-phone"></i></span
+                ><span class="info-text col-10">{{ personal["Phone"] }}</span>
+              </div>
             </div>
           </div>
         </section>
@@ -32,21 +30,12 @@
             <section class="resume__section resume__summary">
               <div class="resume__content">
                 <div class="resume__section-title">
-                  <i class="fa fa-pencil-square-o"></i>
+                  <i class="fa fa-pencil-square"></i>
                   <h2>Professional Summary</h2>
                 </div>
                 <div class="other">
                   <div class="other-info">
-                    <p>
-                      PHP & JavaScript developer + Devops Enthusiast with a
-                      decade of success leading teams in delivering appropriate
-                      technology solutions for desktop and mobile products.
-                    </p>
-                    <p>
-                      Comprehensive knowledge of enterprise architecture, agile
-                      methodologies, remote work, cloud services and web-based
-                      applications.
-                    </p>
+                    <p>{{ personal["Jtitle"] }} + {{ personal["About"] }}</p>
                   </div>
                 </div>
               </div>
@@ -57,66 +46,118 @@
                   <i class="fa fa-briefcase"></i>
                   <h2>Employment History</h2>
                 </div>
-                <div class="xp-item">
+                <div class="xp-item" v-if="myjob[0]">
                   <div class="xp-job">
-                    Full Stack Developer / DevOps
-                    <span>@ Grupo Tesseract</span><br /><small
-                      >Bauru, Sao Paulo</small
-                    >
+                    {{ myjob[0]["jobtitle"] }}
+                    <span>- {{ myjob[0]["company"] }}</span
+                    ><br /><small>{{ myjob[0]["location"] }}</small>
                   </div>
-                  <div class="xp-date">Apr. 2017 – current</div>
+                  <div class="xp-date">
+                    {{ myjob[0]["from"].substring(0, 7) }} -
+                    {{ myjob[0]["to"].substring(0, 7) }}
+                  </div>
                   <div class="xp-detail">
                     <ul>
                       <li>
-                        Design, build or maintain web sites using Laravel,
-                        Bootstrap, Vue, React and WordPress
-                      </li>
-                      <li>Create scripting language tools</li>
-                      <li>Automate dev, builds and deploy tasks</li>
-                      <li>
-                        Maintain understanding of current web technologies or
-                        programming practices through continuing education,
-                        reading and sharing knowledge
-                      </li>
-                      <li>
-                        Develop databases that support web applications and web
-                        sites
-                      </li>
-                      <li>
-                        Develop and document style guidelines for web site
-                        content
-                      </li>
-                      <li>Recommend and implement performance improvements</li>
-                      <li>
-                        Select programming languages, design tools, or
-                        applications
+                        {{ myjob[0]["disc"] }}
                       </li>
                     </ul>
                   </div>
                 </div>
-                <div class="xp-item">
+                <div class="xp-item" v-if="myjob[1]">
                   <div class="xp-job">
-                    Full Stack Developer
-                    <span>@ Jurid Publicações Eletrônicas</span><br /><small
-                      >Bauru, Sao Paulo</small
-                    >
+                    {{ myjob[1]["jobtitle"] }}
+                    <span>- {{ myjob[1]["company"] }}</span
+                    ><br /><small>{{ myjob[1]["location"] }}</small>
                   </div>
-                  <div class="xp-date">Aug. 2018 – Apr. 2020</div>
+                  <div class="xp-date">
+                    {{ myjob[1]["from"].substring(0, 7) }} -
+                    {{ myjob[1]["to"].substring(0, 7) }}
+                  </div>
                   <div class="xp-detail">
                     <ul>
                       <li>
-                        Build or maintain web sites using native PHP, Python and
-                        JavaScript
+                        {{ myjob[1]["disc"] }}
                       </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="xp-item" v-if="myjob[2]">
+                  <div class="xp-job">
+                    {{ myjob[2]["jobtitle"] }}
+                    <span>- {{ myjob[2]["company"] }}</span
+                    ><br /><small>{{ myjob[2]["location"] }}</small>
+                  </div>
+                  <div class="xp-date">
+                    {{ myjob[2]["from"].substring(0, 7) }} -
+                    {{ myjob[2]["to"].substring(0, 7) }}
+                  </div>
+                  <div class="xp-detail">
+                    <ul>
                       <li>
-                        Maintain and improve production databases running on
-                        Elasticsearch, Redis, PostgreSQL and MySQL
+                        {{ myjob[2]["disc"] }}
                       </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="resume__section resume__experience">
+              <div class="resume__content">
+                <div class="resume__section-title">
+                  <i class="fa fa-university"></i>
+                  <h2>Eduation</h2>
+                </div>
+                <div class="xp-item" v-if="myStudy[0]">
+                  <div class="xp-job">
+                    {{ myStudy[0]["spec"] }}
+                    <span>- {{ myStudy[0]["university"] }}</span
+                    ><br /><small>{{ myStudy[0]["location"] }}</small>
+                  </div>
+                  <div class="xp-date">
+                    {{ myStudy[0]["from"].substring(0, 7) }} -
+                    {{ myStudy[0]["to"].substring(0, 7) }}
+                  </div>
+                  <div class="xp-detail">
+                    <ul>
                       <li>
-                        Provide backup and maintenance of GNU/Linux servers
+                        {{ myStudy[0]["disc"] }}
                       </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="xp-item" v-if="myStudy[1]">
+                  <div class="xp-job">
+                    {{ myStudy[1]["spec"] }}
+                    <span>- {{ myStudy[1]["university"] }}</span
+                    ><br /><small>{{ myStudy[1]["location"] }}</small>
+                  </div>
+                  <div class="xp-date">
+                    {{ myStudy[1]["from"].substring(0, 7) }} -
+                    {{ myStudy[1]["to"].substring(0, 7) }}
+                  </div>
+                  <div class="xp-detail">
+                    <ul>
                       <li>
-                        Provide documentation for existent and new applications
+                        {{ myStudy[1]["disc"] }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="xp-item" v-if="myStudy[2]">
+                  <div class="xp-job">
+                    {{ myStudy[2]["spec"] }}
+                    <span>- {{ myStudy[2]["university"] }}</span
+                    ><br /><small>{{ myStudy[2]["location"] }}</small>
+                  </div>
+                  <div class="xp-date">
+                    {{ myStudy[2]["from"].substring(0, 7) }} -
+                    {{ myStudy[2]["to"].substring(0, 7) }}
+                  </div>
+                  <div class="xp-detail">
+                    <ul>
+                      <li>
+                        {{ myStudy[2]["disc"] }}
                       </li>
                     </ul>
                   </div>
@@ -128,91 +169,71 @@
             <section class="resume__section resume__skills">
               <div class="resume__content">
                 <div class="resume__section-title">
-                  <i class="fa fa-align-center"></i>
-                  <h2>Skills</h2>
+                  <i class="fa-brands fa-linkedin"></i>
+                  <h2>Social</h2>
                 </div>
                 <div class="resume__text">
                   <div class="extra">
                     <div class="extra-info">
-                      PHP<br /><small>PHP 5 · PHP 7 · Laravel</small>
-                    </div>
-                    <div class="extra-details">
-                      <div
-                        class="extra-details__progress"
-                        style="width: 90%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="extra">
-                    <div class="extra-info">
-                      JavaScript<br /><small>React · React Native · Vue</small>
-                    </div>
-                    <div class="extra-details">
-                      <div
-                        class="extra-details__progress"
-                        style="width: 87%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="extra">
-                    <div class="extra-info">
-                      HTML<br /><small>HTML5 · Markdown · Pug</small>
-                    </div>
-                    <div class="extra-details">
-                      <div
-                        class="extra-details__progress"
-                        style="width: 100%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="extra">
-                    <div class="extra-info">
-                      CSS<br /><small>Stylus · Sass · Bootstrap</small>
-                    </div>
-                    <div class="extra-details">
-                      <div
-                        class="extra-details__progress"
-                        style="width: 100%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="extra">
-                    <div class="extra-info">
-                      DevOps<br /><small>Docker · Shell · AWS · CI/CD</small>
-                    </div>
-                    <div class="extra-details">
-                      <div
-                        class="extra-details__progress"
-                        style="width: 82%"
-                      ></div>
+                      <ul class="list-logos">
+                        <li v-if="social['LinkedIn']">
+                          <i class="fa-brands fa-linkedin"> </i>
+                        </li>
+                        <br />
+                        <li v-if="social['Twitter']">
+                          <i class="fa-brands fa-twitter"> </i>
+                        </li>
+                        <br />
+                        <li v-if="social['Instagram']">
+                          <i class="fa-brands fa-instagram"> </i>
+                        </li>
+                        <br />
+                        <li v-if="social['Facebook']">
+                          <i class="fa-brands fa-facebook"> </i>
+                        </li>
+                        <br />
+                        <li v-if="social['Github']">
+                          <i class="fa-brands fa-github"> </i>
+                        </li>
+                        <br />
+                      </ul>
+                      <ul class="list-titles">
+                        <li v-if="social['LinkedIn']">LinkedIn</li>
+                        <li v-if="social['LinkedIn']">
+                          {{ social["LinkedIn"] }}
+                        </li>
+                        <li v-if="social['Twitter']">Twitter</li>
+                        <li v-if="social['Twitter']">
+                          {{ social["Twitter"] }}
+                        </li>
+                        <li v-if="social['Instagram']">Instagram</li>
+                        <li v-if="social['Instagram']">
+                          {{ social["Instagram"] }}
+                        </li>
+                        <li v-if="social['Facebook']">Facebook</li>
+                        <li v-if="social['Facebook']">
+                          {{ social["Facebook"] }}
+                        </li>
+                        <li v-if="social['Github']">gitHub</li>
+                        <li v-if="social['Github']">{{ social["Github"] }}</li>
+                      </ul>
                     </div>
                   </div>
-                  <div class="extra">
-                    <div class="extra-info">
-                      Databases<br /><small
-                        >PostgreSQL · MySQL · Elasticsearch · Redis</small
-                      >
-                    </div>
-                    <div class="extra-details">
-                      <div
-                        class="extra-details__progress"
-                        style="width: 80%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="extra">
-                    <div class="extra-info">
-                      Operating Systems<br /><small>
-                        <i class="fa fa-linux"></i> GNU/Linux ·
-                        <i class="fa fa-apple"></i> Mac OS ·
-                        <i class="fa fa-windows"></i> Windows</small
-                      >
-                    </div>
-                    <div class="extra-details">
-                      <div
-                        class="extra-details__progress"
-                        style="width: 90%"
-                      ></div>
+                </div>
+              </div>
+            </section>
+            <section class="resume__section resume__skills">
+              <div class="resume__content">
+                <div class="resume__section-title">
+                  <i class="fa fa-align-center"></i>
+                  <h2>Skills</h2>
+                </div>
+                <div class="resume__text">
+                  <div v-for="skill in this.$store.state.skills" :key="skill">
+                    <div class="extra">
+                      <div class="extra-info pill">
+                        {{ skill }}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -224,33 +245,23 @@
                   <i class="fa fa-globe"></i>
                   <h2>Languages</h2>
                 </div>
-                <div class="extra">
-                  <div class="extra-info">
-                    Portuguese <small>(native)</small>
-                  </div>
-                  <div class="extra-details">
-                    <div
-                      class="extra-details__progress"
-                      style="width: 100%"
-                    ></div>
-                  </div>
-                </div>
-                <div class="extra">
-                  <div class="extra-info">English</div>
-                  <div class="extra-details">
-                    <div
-                      class="extra-details__progress"
-                      style="width: 65%"
-                    ></div>
-                  </div>
-                </div>
-                <div class="extra">
-                  <div class="extra-info">Spanish</div>
-                  <div class="extra-details">
-                    <div
-                      class="extra-details__progress"
-                      style="width: 20%"
-                    ></div>
+                <div
+                  v-for="language in this.$store.state.languages"
+                  :key="language"
+                >
+                  <div class="extra">
+                    <div class="extra-info">
+                      {{ Object.keys(language)[0] }}
+                      <small v-if="Object.values(language)[0] == 100"
+                        >(native)</small
+                      >
+                    </div>
+                    <div class="extra-details">
+                      <div
+                        class="extra-details__progress"
+                        :style="{ width: Object.values(language)[0] + '%' }"
+                      ></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -266,10 +277,36 @@
 export default {
   name: "theme-1",
   components: {},
-  computed: {},
+  computed: {
+    personal() {
+      return this.$store.state.personal;
+    },
+    myjob() {
+      return this.$store.state.jobs;
+    },
+    myStudy() {
+      return this.$store.state.study;
+    },
+    social() {
+      return this.$store.state.social;
+    },
+    headingColor() {
+      return this.$store.state.headingColor;
+    },
+    cvColorOne() {
+      return this.$store.state.cvColors[0].firstcolor;
+    },
+    cvColorTwo() {
+      return this.$store.state.cvColors[0].secondcolor;
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
+$profileBg: v-bind(cvColorOne);
+$secondBg: v-bind(cvColorTwo);
+$linkColor: v-bind(headingColor);
+
 @font-face {
   font-family: "Open Sans";
   font-style: normal;
@@ -294,18 +331,6 @@ export default {
     url("https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxK.woff2")
       format("woff2");
 }
-@page {
-  size: A4;
-}
-body {
-  -webkit-print-color-adjust: exact;
-  color-adjust: exact;
-  background-color: #fff;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300;
-  display: flex;
-  justify-content: center;
-}
 .btn-print {
   z-index: 1;
   position: absolute;
@@ -319,6 +344,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   min-height: 1090.41px;
+  background: $profileBg;
 }
 .resume h1 {
   font-size: 2.86em;
@@ -359,12 +385,12 @@ body {
   align-items: center;
   margin-bottom: 1.43em;
 }
-.resume .resume__section-title > i {
+.resume .resume__section-title > svg {
   margin-right: 0.63em;
   font-size: 1.14em;
-  background-color: #5695cd;
+  background-color: $linkColor;
   color: #fff;
-  border: 0.25em solid #aacae6;
+  border: 0.25em solid $linkColor;
   border-radius: 50%;
   width: 2.51em;
   height: 2.51em;
@@ -386,6 +412,7 @@ body {
   float: left;
   width: 75%;
   padding-right: 6em;
+  text-align: left;
 }
 .resume .resume__side {
   float: left;
@@ -394,22 +421,51 @@ body {
 .resume .other-info p > b {
   color: #555;
 }
+.list-titles li {
+  list-style: none;
+}
+svg {
+  display: inline;
+}
+.list-logos {
+  float: left;
+  text-align: left;
+  font-weight: 600;
+  width: 10%;
+  color: #4a4e51;
+  padding-left: 15%;
+  padding-right: 15%;
+  li {
+    list-style: none;
+  }
+}
+.list-titles {
+  text-align: left;
+}
 .resume .info-item {
   margin-bottom: 0.2em;
   font-weight: 300;
-}
-.resume .info-item:last-child {
-  margin-bottom: 0;
+  width: 40%;
+  align-self: center;
+  margin-left: 10%;
 }
 .resume .info-label {
   display: inline-block;
   padding-right: 0.63em;
   font-size: 1.14em;
   min-width: 2.19em;
-  text-align: center;
+  text-align: right;
 }
-.resume .info-label i {
-  color: #5695cd;
+.resume .info-text {
+  text-align: left;
+}
+.resume .info-wrapper {
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.resume .info-label svg {
+  color: $linkColor;
 }
 .resume .xp-item {
   margin-bottom: 4em;
@@ -433,13 +489,10 @@ body {
   font-size: 0.8em;
   margin-top: 0.3em;
   margin-bottom: 1em;
-  color: #5695cd;
+  color: $linkColor;
 }
-.resume .extra {
+.extra {
   margin-bottom: 2em;
-}
-.resume .extra:last-child {
-  margin-bottom: 0;
 }
 .resume .extra-info small {
   color: #666;
@@ -450,7 +503,7 @@ body {
 .resume .extra-details__progress {
   border-radius: 6px;
 }
-.resume .extra-details {
+.extra-details {
   margin-top: 0.5em;
   background-color: #d1d9e1;
   width: 100%;
@@ -458,7 +511,7 @@ body {
   position: relative;
 }
 .resume .extra-details__progress {
-  background-color: #5695cd;
+  background-color: $linkColor;
   height: 5px;
   position: absolute;
   top: 0;
@@ -473,12 +526,12 @@ body {
 .resume .lang-label {
   width: 8em;
 }
+.pill {
+  background-color: aliceblue;
+}
 @media print {
   body {
-    min-width: initial !important;
-  }
-  .btn-print {
-    display: none;
+    background: $profileBg;
   }
 }
 </style>

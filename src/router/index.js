@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import pdf from "../views/pdf.vue";
 import cvpage from "../views/cvpage.vue";
 import home from "../views/Home.vue";
+import templates from "../views/templates.vue";
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/cvpage",
     name: "cvpage",
     component: cvpage,
+  },
+  {
+    path: "/templates",
+    name: "templates",
+    component: templates,
   },
 ];
 

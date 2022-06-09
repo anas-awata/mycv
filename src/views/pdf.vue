@@ -25,12 +25,18 @@
       id="content"
       class="col-md-8 col-sm-12"
     >
-      <theme-1 v-if="themeone"> </theme-1>
-      <theme-2 v-if="themetwo"></theme-2>
-      <theme-3 v-if="themethree"></theme-3>
-      <theme-4 v-if="themefour"></theme-4>
-      <theme-5 v-if="themefive"></theme-5>
-      <theme-6 v-if="themesix"></theme-6>
+      <button @click="showTemplate(templatesShow, 'themeone')">theme1</button>
+      <button @click="showTemplate(templatesShow, 'themetwo')">theme2</button>
+      <button @click="showTemplate(templatesShow, 'themethree')">theme3</button>
+      <button @click="showTemplate(templatesShow, 'themefour')">theme4</button>
+      <button @click="showTemplate(templatesShow, 'themefive')">theme5</button>
+      <button @click="showTemplate(templatesShow, 'themesix')">theme6</button>
+      <theme-1 v-if="this.$store.state.templatesShow.themeone"> </theme-1>
+      <theme-2 v-if="this.$store.state.templatesShow.themetwo"></theme-2>
+      <theme-3 v-if="this.$store.state.templatesShow.themethree"></theme-3>
+      <theme-4 v-if="this.$store.state.templatesShow.themefour"></theme-4>
+      <theme-5 v-if="this.$store.state.templatesShow.themefive"></theme-5>
+      <theme-6 v-if="this.$store.state.templatesShow.themesix"></theme-6>
       <!-- SOURCE -->
     </div>
   </div>
@@ -71,15 +77,25 @@ export default {
       output: null,
       el: null,
       noPrint: true,
-      themeone: true,
-      themetwo: false,
-      themethree: false,
-      themefour: false,
-      themefive: false,
-      themesix: false,
+      templatesShow: {
+        themeone: false,
+        themetwo: false,
+        themethree: false,
+        themefour: false,
+        themefive: false,
+        themesix: true,
+      },
     };
   },
   methods: {
+    showTemplate(obj, template) {
+      Object.keys(obj).forEach((key) => {
+        obj[key] = false;
+      });
+      // eslint-disable-next-line
+      obj[template] = true;
+      this.$store.commit("settingcvtemplate", obj);
+    },
     async print() {
       this.doc = new jsPDF({
         orientation: "p",

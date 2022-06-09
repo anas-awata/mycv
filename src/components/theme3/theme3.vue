@@ -156,7 +156,7 @@
           </div>
         </div>
         <div class="section">
-          <div class="section__title">Skills</div>
+          <div class="section__title">Languages</div>
           <div class="skills">
             <div
               class="skills__item"
@@ -415,5 +415,10 @@ body {
 }
 .contact-info {
   margin-top: 2%;
+}
+@media print {
+  body {
+    background: $profileBg;
+  }
 }
 </style>

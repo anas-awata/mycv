@@ -7,6 +7,11 @@
     <div id="link-group" class="link-group">
       <ul>
         <li class="nav-link">
+          <router-link class="cvselectorlink" to="/templates">
+            <span class="material-icons">Templates</span>templates</router-link
+          >
+        </li>
+        <li class="nav-link">
           <a href="/"><span class="material-icons">home</span>Home</a>
         </li>
       </ul>

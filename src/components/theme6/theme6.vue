@@ -1,87 +1,169 @@
 <template>
   <div class="rela-block page">
     <div class="rela-block top-bar">
-      <div class="caps name"><div class="abs-center">Kyle J Shanks</div></div>
+      <div class="caps name">
+        <div class="abs-center">{{ personal["Jtitle"] }}</div>
+      </div>
     </div>
     <div class="side-bar">
       <div class="mugshot">
         <div class="logo">
-          <svg viewbox="0 0 80 80" class="rela-block logo-svg">
-            <path
-              d="M 10 10 L 52 10 L 72 30 L 72 70 L 30 70 L 10 50 Z"
-              stroke-width="2.5"
-              fill="none"
-            />
-          </svg>
-          <p class="logo-text">kj</p>
+          <p class="logo-text">
+            {{ personal["Fname"] }} {{ personal["Lname"] }}
+          </p>
         </div>
       </div>
-      <p>123 My Place Drive</p>
-      <p>Astoria, New York 11105</p>
-      <p>1-800-CALLPLZ</p>
-      <p>emailsareforsquares@gmail.com</p>
+      <div class="myinfo">
+        <div class="info-item row">
+          <span class="info-label col-2"><i class="fa fa-home"></i></span
+          ><span class="info-text col-10">{{ personal["Address"] }}</span>
+        </div>
+        <div class="info-item row">
+          <span class="info-label col-2"><i class="fa fa-envelope"></i></span
+          ><span class="info-text col-10">{{ personal["Email"] }}</span>
+        </div>
+        <div class="info-item row">
+          <span class="info-label col-2"><i class="fa fa-phone"></i></span
+          ><span class="info-text col-10">{{ personal["Phone"] }}</span>
+        </div>
+      </div>
       <br />
-      <p class="rela-block social twitter">Twitter stuff</p>
-      <p class="rela-block social pinterest">Pinterest things</p>
-      <p class="rela-block social linked-in">Linked-in man</p>
-      <p class="rela-block caps side-header">Expertise</p>
-      <p class="rela-block list-thing">HTML</p>
-      <p class="rela-block list-thing">CSS (Stylus)</p>
-      <p class="rela-block list-thing">JavaScript & jQuery</p>
-      <p class="rela-block list-thing">Killer Taste</p>
-      <p class="rela-block caps side-header">Education</p>
-      <p class="rela-block list-thing">Advanced potion making</p>
-      <p class="rela-block list-thing">Degree in popping and locking</p>
-      <p class="rela-block list-thing">Knitting game on point</p>
-      <p class="rela-block list-thing">Culinary af</p>
+      <p class="rela-block social twitter" v-if="social['Twitter']">
+        {{ social["Twitter"] }}
+      </p>
+      <p class="rela-block social linked-in" v-if="social['LinkedIn']">
+        {{ social["LinkedIn"] }}
+      </p>
+      <p class="rela-block social facebook" v-if="social['Facebook']">
+        {{ social["Facebook"] }}
+      </p>
+      <p class="rela-block social instagram" v-if="social['Instagram']">
+        {{ social["Instagram"] }}
+      </p>
+      <p class="rela-block social github" v-if="social['Github']">
+        {{ social["Github"] }}
+      </p>
+      <p class="rela-block caps side-header">Skills</p>
+      <p
+        class="rela-block list-thing"
+        v-for="skill in this.$store.state.skills"
+        :key="skill"
+      >
+        {{ skill }}
+      </p>
+      <p class="rela-block caps side-header">Languages</p>
+      <div v-for="language in this.$store.state.languages" :key="language">
+        <div class="extra">
+          <div class="extra-info">
+            {{ Object.keys(language)[0] }}
+            <small v-if="Object.values(language)[0] == 100">(native)</small>
+          </div>
+          <div class="extra-details">
+            <div
+              class="extra-details__progress"
+              :style="{ width: Object.values(language)[0] + '%' }"
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="rela-block content-container">
-      <h2 class="rela-block caps title">Jr Front-End Developer</h2>
-      <div class="rela-block separator"></div>
       <div class="rela-block caps greyed">Profile</div>
       <p class="long-margin">
-        Retro DIY quinoa, mixtape williamsburg master cleanse bushwick tumblr
-        chillwave dreamcatcher hella wolf paleo. Knausgaard semiotics truffaut
-        cornhole hoodie, YOLO meggings gochujang tofu. Locavore ugh kale chips
-        iPhone biodiesel typewriter freegan, kinfolk brooklyn kitsch man bun.
-        Austin neutra etsy, lumbersexual paleo cornhole sriracha kinfolk
-        meggings kickstarter.
+        {{ personal["About"] }}
       </p>
       <div class="rela-block caps greyed">Experience</div>
-
-      <h3>Job #1</h3>
-      <p class="light">First job description</p>
-      <p class="justified">
-        Plaid gentrify put a bird on it, pickled XOXO farm-to-table irony raw
-        denim messenger bag leggings. Hoodie PBR&B photo booth, vegan chillwave
-        meh paleo freegan ramps. Letterpress shabby chic fixie semiotics.
-        Meditation sriracha banjo pour-over. Gochujang pickled hashtag mixtape
-        cred chambray. Freegan microdosing VHS, 90's bicycle rights aesthetic
-        hella PBR&B.
-      </p>
-
-      <h3>Job #2</h3>
-      <p class="light">Second Job Description</p>
-      <p class="justified">
-        Beard before they sold out photo booth distillery health goth. Hammock
-        franzen green juice meggings, ethical sriracha tattooed schlitz mixtape
-        man bun stumptown swag whatever distillery blog. Affogato iPhone
-        normcore, meggings actually direct trade lomo plaid franzen shoreditch.
-        Photo booth pug paleo austin, pour-over banh mi scenester vice food
-        truck slow-carb. Street art kogi normcore, vice everyday carry crucifix
-        thundercats man bun raw denim echo park pork belly helvetica vinyl.
-      </p>
-
-      <h3>Job #3</h3>
-      <p class="light">Third Job Description</p>
-      <p class="justified">
-        Next level roof party lo-fi fingerstache skateboard, kogi tumblr. Shabby
-        chic put a bird on it chambray, 3 wolf moon swag beard brooklyn
-        post-ironic taxidermy art party microdosing keffiyeh marfa. Put a bird
-        on it 3 wolf moon cliche helvetica knausgaard. Mumblecore fingerstache
-        lomo, artisan freegan keffiyeh paleo kinfolk kale chips street art blog
-        flannel.
-      </p>
+      <div v-if="myjob[0]">
+        <div class="row">
+          <h3 class="col-6">{{ myjob[0]["jobtitle"] }}</h3>
+          <p class="light col-6">
+            {{ myjob[0]["company"] }} - {{ myjob[0]["location"] }}
+          </p>
+        </div>
+        <p class="light">
+          {{ myjob[0]["from"].substring(0, 7) }} -
+          {{ myjob[0]["to"].substring(0, 7) }}
+        </p>
+        <p class="justified">
+          {{ myjob[0]["disc"] }}
+        </p>
+      </div>
+      <div v-if="myjob[1]">
+        <div class="row">
+          <h3 class="col-6">{{ myjob[1]["jobtitle"] }}</h3>
+          <p class="light col-6">
+            {{ myjob[1]["company"] }} - {{ myjob[1]["location"] }}
+          </p>
+        </div>
+        <p class="light">
+          {{ myjob[1]["from"].substring(0, 7) }} -
+          {{ myjob[1]["to"].substring(0, 7) }}
+        </p>
+        <p class="justified">
+          {{ myjob[1]["disc"] }}
+        </p>
+      </div>
+      <div v-if="myjob[2]">
+        <div class="row">
+          <h3 class="col-6">{{ myjob[2]["jobtitle"] }}</h3>
+          <p class="light col-6">
+            {{ myjob[2]["company"] }} - {{ myjob[2]["location"] }}
+          </p>
+        </div>
+        <p class="light">
+          {{ myjob[2]["from"].substring(0, 7) }} -
+          {{ myjob[2]["to"].substring(0, 7) }}
+        </p>
+        <p class="justified">
+          {{ myjob[2]["disc"] }}
+        </p>
+      </div>
+      <div class="rela-block caps greyed">Education</div>
+      <div v-if="myStudy[0]">
+        <div class="row">
+          <h3 class="col-6">{{ myStudy[0]["spec"] }}</h3>
+          <p class="light col-6">
+            {{ myStudy[0]["university"] }} - {{ myStudy[0]["location"] }}
+          </p>
+        </div>
+        <p class="light">
+          {{ myStudy[0]["from"].substring(0, 7) }} -
+          {{ myStudy[0]["to"].substring(0, 7) }}
+        </p>
+        <p class="justified">
+          {{ myStudy[0]["disc"] }}
+        </p>
+      </div>
+      <div v-if="myStudy[1]">
+        <div class="row">
+          <h3 class="col-6">{{ myStudy[1]["spec"] }}</h3>
+          <p class="light col-6">
+            {{ myStudy[1]["university"] }} - {{ myStudy[1]["location"] }}
+          </p>
+        </div>
+        <p class="light">
+          {{ myStudy[1]["from"].substring(0, 7) }} -
+          {{ myStudy[1]["to"].substring(0, 7) }}
+        </p>
+        <p class="justified">
+          {{ myStudy[1]["disc"] }}
+        </p>
+      </div>
+      <div v-if="myStudy[2]">
+        <div class="row">
+          <h3 class="col-6">{{ myStudy[2]["spec"] }}</h3>
+          <p class="light col-6">
+            {{ myStudy[2]["university"] }} - {{ myStudy[2]["location"] }}
+          </p>
+        </div>
+        <p class="light">
+          {{ myStudy[2]["from"].substring(0, 7) }} -
+          {{ myStudy[2]["to"].substring(0, 7) }}
+        </p>
+        <p class="justified">
+          {{ myStudy[2]["disc"] }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -89,10 +171,37 @@
 <script>
 export default {
   name: "theme-6",
+  computed: {
+    personal() {
+      return this.$store.state.personal;
+    },
+    myjob() {
+      return this.$store.state.jobs;
+    },
+    myStudy() {
+      return this.$store.state.study;
+    },
+    social() {
+      return this.$store.state.social;
+    },
+    headingColor() {
+      return this.$store.state.headingColor;
+    },
+    cvColorOne() {
+      return this.$store.state.cvColors[0].firstcolor;
+    },
+    cvColorTwo() {
+      return this.$store.state.cvColors[0].secondcolor;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+$profileBg: v-bind(cvColorOne);
+$secondBg: v-bind(cvColorTwo);
+$linkColor: v-bind(headingColor);
+
 .rela-block {
   display: block;
   position: relative;
@@ -139,20 +248,6 @@ body {
   letter-spacing: 0px;
   font-weight: 400;
   line-height: 28px;
-  background: url("http://kingofwallpapers.com/leaves/leaves-016.jpg") right
-    no-repeat;
-  background-size: cover;
-}
-body:before {
-  content: "";
-  display: false;
-  position: fixed;
-  margin: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.92);
 }
 .caps {
   text-transform: uppercase;
@@ -180,15 +275,13 @@ h3 {
   color: #000;
 }
 .page {
-  width: 90%;
-  max-width: 1200px;
-  margin: 80px auto;
+  width: 100%;
   background-color: #fff;
   box-shadow: 6px 10px 28px 0px rgba(0, 0, 0, 0.4);
 }
 .top-bar {
   height: 220px;
-  background-color: #848484;
+  background-color: $secondBg;
   color: #fff;
 }
 .name {
@@ -219,15 +312,15 @@ h3 {
   right: false;
   bottom: 0;
   width: 350px;
-  background-color: #f7e0c1;
+  background-color: $profileBg;
   padding: 320px 30px 50px;
 }
 .mugshot {
   display: false;
   position: absolute;
   margin: false;
-  top: 50px;
-  left: 70px;
+  top: 65px;
+  left: 85px;
   right: false;
   bottom: false;
   height: 210px;
@@ -247,14 +340,7 @@ h3 {
   z-index: 100;
   margin: 0;
   color: #000;
-  height: 250px;
   width: 250px;
-}
-.logo .logo-svg {
-  height: 100%;
-  width: 100%;
-  stroke: #000;
-  cursor: pointer;
 }
 .logo .logo-text {
   display: false;
@@ -271,8 +357,17 @@ h3 {
   font-weight: 400;
   line-height: 58.333333333333336px;
 }
+.myinfo {
+  margin-left: 15%;
+  margin-top: -35%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.info-label {
+  text-align: right;
+}
 .social {
-  padding-left: 60px;
+  padding-left: 110px;
   margin-bottom: 20px;
   cursor: pointer;
 }
@@ -292,14 +387,27 @@ h3 {
 .social.twitter:before {
   background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_Twitter-07-128.png")
     center no-repeat;
+  margin-left: 11%;
 }
-.social.pinterest:before {
-  background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_Pinterest-23-128.png")
+.social.github:before {
+  background: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-outline-256.png")
     center no-repeat;
+  margin-left: 10%;
+}
+.social.instagram:before {
+  background: url("https://cdn0.iconfinder.com/data/icons/phosphor-thin-vol-3/256/instagram-logo-thin-256.png")
+    center no-repeat;
+  margin-left: 10%;
 }
 .social.linked-in:before {
   background: url("https://cdn3.iconfinder.com/data/icons/social-media-2026/60/Socialmedia_icons_LinkedIn-128.png")
     center no-repeat;
+  margin-left: 11%;
+}
+.social.facebook:before {
+  background: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-facebook-outline-256.png")
+    center no-repeat;
+  margin-left: 10%;
 }
 .side-header {
   font-family: "Open Sans";
@@ -312,7 +420,6 @@ h3 {
   border-bottom: 1px solid #888;
 }
 .list-thing {
-  padding-left: 25px;
   margin-bottom: 10px;
 }
 .content-container {
@@ -339,7 +446,7 @@ h3 {
   background-color: #999;
 }
 .greyed {
-  background-color: #ddd;
+  background-color: $linkColor;
   width: 100%;
   max-width: 580px;
   text-align: center;
@@ -348,6 +455,32 @@ h3 {
   letter-spacing: 6px;
   font-weight: 600;
   line-height: 28px;
+}
+.extra {
+  margin-bottom: 2em;
+}
+.extra-info small {
+  color: #666;
+  display: inline-block;
+  font-size: 0.7em;
+}
+.extra-details,
+.extra-details__progress {
+  border-radius: 6px;
+}
+.extra-details {
+  margin-top: 0.5em;
+  background-color: #d1d9e1;
+  width: 100%;
+  height: 5px;
+  position: relative;
+}
+.extra-details__progress {
+  background-color: $secondBg;
+  height: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 @media screen and (max-width: 1150px) {
   .name {

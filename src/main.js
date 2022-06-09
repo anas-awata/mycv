@@ -102,6 +102,14 @@ const store = createStore({
       languages: [{ Arabic: "100" }, { English: "80" }, { Spanish: "40" }],
       headingColor: "#66cc99",
       cvColors: [{ firstcolor: "#fff", secondcolor: "#3d3e42" }],
+      templatesShow: {
+        themeone: false,
+        themetwo: false,
+        themethree: false,
+        themefour: false,
+        themefive: false,
+        themesix: true,
+      },
     };
   },
   getters: {
@@ -161,6 +169,9 @@ const store = createStore({
     },
     settingcvcolortwo(state, payload) {
       state.cvColors[0].secondcolor = payload;
+    },
+    settingcvtemplate(state, payload) {
+      state.templatesShow = payload;
     },
     initialiseStore(state) {
       if (localStorage.getItem("store")) {

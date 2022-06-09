@@ -9,9 +9,7 @@
           <h4 class="form-title">
             <i class="fa-solid fa-user"></i>Personal details
           </h4>
-          <button id="expansionPanelPersonal" type="button" class="col-1">
-            <i class="fa-solid fa-angle-down"> </i>
-          </button>
+          <i class="fa-solid fa-angle-down col-1"> </i>
         </div>
       </div>
       <div class="grid-container" :class="{ open: !personalHidden }">
@@ -246,6 +244,7 @@ label {
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   cursor: pointer;
   margin-bottom: 1px;
+  align-items: center;
 }
 .expansion-panel-title {
   background-color: #fff;

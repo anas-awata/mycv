@@ -72,7 +72,7 @@ nav {
 .vacp-color-input-group,
 .vacp-format-switch-button,
 .vacp-copy-button {
-  display: none;
+  display: none !important;
 }
 .cvselectorlink {
   margin-left: -11%;
@@ -92,21 +92,32 @@ nav {
   .noprint {
     display: none;
   }
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+  }
   #content {
     display: block !important;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     margin-top: -10%;
     min-height: 100% !important;
+    page-break-after: avoid;
   }
   .top-fix {
     margin-top: 0;
   }
   .theme-3-container {
-    font-size: 20px !important;
+    font-size: 18px !important;
+    height: 100%;
   }
   @page {
-    size: 297mm 420mm;
+    /*size: 297mm 420mm;*/
+    size: A4;
     margin: 0;
     margin-bottom: -100px;
   }
