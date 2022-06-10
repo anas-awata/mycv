@@ -106,6 +106,8 @@ nav {
     height: 100% !important;
     margin-top: -10%;
     min-height: 100% !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
     page-break-after: avoid;
   }
   .top-fix {

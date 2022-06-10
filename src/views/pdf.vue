@@ -253,8 +253,8 @@ export default {
 }
 #content {
   height: 300px;
-  padding-right: 0;
-  padding-left: 0;
+  padding-right: 3%;
+  padding-left: 5%;
 }
 #content-image {
   width: 600px;
