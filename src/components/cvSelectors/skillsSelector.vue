@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="item5">
-          <label for="languages" class="form-label"
+          <label for="languages" class="form-label label-lang"
             ><i class="fa-solid fa-language"> </i>languages</label
           >
           <div class="row lang-select">
@@ -168,14 +168,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$profileBg: #fff;
-$skillsBg: #3d3e42;
-$profileColor: #9099a0;
-$skillsColor: #9099a0;
-$linkColor: #66cc99;
-$boldColor: #4a4e51;
-$time: 0.6s;
-
 @mixin breakpoint($point) {
   @if $point == papa-bear {
     @media (max-width: 1500px) {
@@ -223,8 +215,9 @@ $time: 0.6s;
   justify-content: space-around;
   align-content: center;
   display: none;
-  background-color: #fff;
   margin-bottom: 20px;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 .open {
   display: grid;
@@ -251,6 +244,16 @@ $time: 0.6s;
 .item6 {
   align-self: end;
 }
+.item4 {
+  margin-bottom: 7%;
+}
+.item6 {
+  margin-left: 10px;
+}
+.item7 {
+  margin-top: 20px;
+  margin-left: -6px;
+}
 label {
   display: table;
   margin-left: 10px;
@@ -258,13 +261,15 @@ label {
   margin-bottom: 2px;
   font-size: 18px;
 }
+.label-lang {
+  margin-bottom: 20px;
+}
 #expansionPanelPersonal {
   display: inline;
   align-self: center;
   border-radius: 8px;
   padding: 0px;
   border: none;
-  background-color: #fff;
 }
 .form-title {
   display: inline;
@@ -280,11 +285,11 @@ label {
   margin-bottom: 1px;
   align-items: center;
 }
-.expansion-panel-title {
-  background-color: #fff;
+.expansion-panel-title:hover {
+  background-color: #333;
 }
 svg {
-  margin-right: 3px;
+  margin-right: 10px;
 }
 .pill {
   display: inline-block;
@@ -295,7 +300,7 @@ svg {
   font-size: 12px;
   letter-spacing: 1px;
   font-weight: bold;
-  color: #777;
+  color: #000;
   cursor: pointer;
 }
 .lang-select {
@@ -314,56 +319,6 @@ svg {
 .btn-danger {
   height: 2.2em;
 }
-.section-wrapper {
-  width: 100%;
-  float: left;
-  text-align: left;
-  color: #9099a0;
-  font-weight: 300;
-  margin-bottom: 20px;
-  @include breakpoint(baby-bear) {
-    width: 100%;
-  }
-  &:nth-child(3) {
-    padding-right: 8%;
-  }
-  h3.section-title {
-    color: $linkColor;
-    text-align: left;
-    text-transform: uppercase;
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    font-weight: 400;
-  }
-  .skill-percentage {
-    margin-bottom: 10px;
-    position: relative;
-    &::after {
-      content: "";
-      width: 100%;
-      height: 6px;
-      background: $boldColor;
-      display: block;
-      margin-top: 3px;
-    }
-    &::before {
-      content: "";
-      height: 6px;
-      background: $linkColor;
-      position: absolute;
-      margin-top: 3px;
-      bottom: 0;
-    }
-    &:nth-child(1)::before {
-      width: v-bind("mywidth");
-      animation: skill $time ease;
-    }
-    &:nth-child(2)::before {
-      width: v-bind("mywidth");
-      animation: skill $time ease;
-    }
-  }
-}
 
 @keyframes skill {
   from {
@@ -376,5 +331,10 @@ svg {
 
 .form-title svg {
   margin-right: 10px;
+}
+.section-wrapper {
+  width: 100%;
+  margin-top: 7%;
+  color: #eee;
 }
 </style>

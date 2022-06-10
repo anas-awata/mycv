@@ -40,7 +40,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: #fff;
+  background-color: #eee;
+}
+
+body {
+  background: #eee !important;
 }
 
 nav {
@@ -79,6 +83,10 @@ nav {
 }
 .form-title {
   white-space: nowrap;
+}
+input,
+textarea {
+  background-color: #eee !important;
 }
 @media (max-width: 768px) {
   .profile {

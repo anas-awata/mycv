@@ -139,8 +139,8 @@ export default {
 <style lang="scss" scoped>
 .container {
   display: none;
-  background-color: #fff;
   margin-bottom: 20px;
+  margin-top: 7%;
 }
 .open {
   display: block;
@@ -163,7 +163,6 @@ export default {
   border-radius: 8px;
   padding: 0px;
   border: none;
-  background-color: #fff;
 }
 #expansionPanelPersonal:hover,
 #expansionPanelPersonal:active,
@@ -184,11 +183,11 @@ export default {
   margin-bottom: 1px;
   align-items: center;
 }
-.expansion-panel-title {
-  background-color: #fff;
+.expansion-panel-title:hover {
+  background-color: #333;
 }
 svg {
-  margin-right: 3px;
+  margin-right: 10px;
 }
 .form-sub-title {
   text-align: left;
@@ -225,5 +224,8 @@ svg {
 }
 .fa-palette {
   margin-right: 10px;
+}
+.form-section {
+  margin-top: 7%;
 }
 </style>

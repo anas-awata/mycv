@@ -93,9 +93,7 @@
           <h4 class="form-title">
             <i class="fa-brands fa-linkedin"> </i>Social details
           </h4>
-          <button id="expansionPanelPersonal" type="button" class="col-1">
-            <i class="fa-solid fa-angle-down"> </i>
-          </button>
+          <i class="fa-solid fa-angle-down col-1"> </i>
         </div>
       </div>
       <div class="grid-container" :class="{ open: !socialHidden }">
@@ -198,8 +196,11 @@ export default {
   justify-content: space-around;
   align-content: center;
   display: none;
-  background-color: #fff;
   margin-bottom: 20px;
+  gap: 10px;
+  white-space: nowrap;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 .open {
   display: grid;
@@ -246,17 +247,16 @@ label {
   margin-bottom: 1px;
   align-items: center;
 }
-.expansion-panel-title {
-  background-color: #fff;
+.expansion-panel-title:hover {
+  background-color: #333;
 }
 svg {
-  margin-right: 3px;
+  margin-right: 10px;
 }
 .form-title svg {
   margin-right: 10px;
 }
 button {
   border: none;
-  background-color: #fff;
 }
 </style>

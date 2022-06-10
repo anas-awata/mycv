@@ -18,6 +18,11 @@
       <work-selector />
       <study-selector />
       <skills-Selector />
+      <div class="" :class="{ noprint: noPrint }">
+        <button @click="printme" class="btn btn-success">
+          Download PDF <i class="fa-solid fa-download"> </i>
+        </button>
+      </div>
     </div>
     <div
       v-show="!isMobile"
@@ -39,11 +44,6 @@
       <theme-6 v-if="this.$store.state.templatesShow.themesix"></theme-6>
       <!-- SOURCE -->
     </div>
-  </div>
-  <div class="" :class="{ noprint: noPrint }">
-    <button @click="printme" class="btn btn-success">
-      Download PDF <i class="fa-solid fa-download"> </i>
-    </button>
   </div>
   <!-- OUTPUT -->
   <div class="pdf-section" :class="{ noprint: noPrint }">
@@ -252,9 +252,16 @@ export default {
   float: left;
 }
 #content {
-  height: 300px;
   padding-right: 3%;
   padding-left: 5%;
+  background: #eee;
+}
+.cvinput {
+  background-color: #222;
+  color: #eee;
+  margin-top: -50px;
+  margin-bottom: -30px;
+  padding-right: 0 !important;
 }
 #content-image {
   width: 600px;
@@ -274,7 +281,7 @@ export default {
 @media (min-width: 768px) {
   .btn {
     float: left;
-    margin-left: 10%;
+    margin-left: 30%;
   }
 }
 @media (max-width: 768px) {

@@ -82,8 +82,9 @@ li {
 }
 .work-container {
   display: none;
-  background-color: #fff;
   margin-bottom: 20px;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 .studyopen {
   display: block;
@@ -115,16 +116,12 @@ li {
   margin-bottom: 1px;
   align-items: center;
 }
-.expansion-panel-title {
-  background-color: #fff;
-}
 #expansionPanelPersonal {
   display: inline;
   align-self: center;
   border-radius: 8px;
   padding: 0px;
   border: none;
-  background-color: #fff;
 }
 label {
   display: table;
@@ -133,7 +130,10 @@ label {
   margin-bottom: 2px;
   font-size: 18px;
 }
-.form-title svg {
+svg {
   margin-right: 10px;
+}
+.expansion-panel-title:hover {
+  background-color: #333;
 }
 </style>

@@ -146,9 +146,10 @@ export default {
   justify-content: center;
   align-content: center;
   display: none;
-  background-color: #fff;
   grid-gap: 10px;
   margin-bottom: 20px;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 .open {
   display: grid;
@@ -181,7 +182,6 @@ label {
   border-radius: 8px;
   padding: 0px;
   border: none;
-  background-color: #fff;
 }
 .form-title {
   display: inline;
@@ -192,11 +192,11 @@ label {
   display: flex;
   justify-content: space-between;
 }
-.expansion-panel-title {
-  background-color: #fff;
+.expansion-panel-title:hover {
+  background-color: #333;
 }
 svg {
-  margin-right: 3px;
+  margin-right: 10px;
 }
 .btndelete {
   display: inline;
