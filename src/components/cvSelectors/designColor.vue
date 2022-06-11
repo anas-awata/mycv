@@ -185,6 +185,7 @@ export default {
 }
 .expansion-panel-title:hover {
   background-color: #333;
+  transition: background-color 0.3s ease-in-out;
 }
 svg {
   margin-right: 10px;

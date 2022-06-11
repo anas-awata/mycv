@@ -35,10 +35,15 @@ export default {
 </script>
 <style scoped>
 .container {
-  margin-top: 10%;
+  margin-top: 35%;
   border-style: none;
+  color: #eee;
 }
 .nav-container {
-  margin-top: 50px;
+  background-color: ghostwhite;
+  position: fixed;
+  top: 49px;
+  width: 100%;
+  z-index: 1000;
 }
 </style>

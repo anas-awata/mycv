@@ -59,6 +59,7 @@ nav {
     white-space: nowrap;
     border-bottom-width: thin;
     font-family: auto;
+    background: ghostwhite;
 
     &.router-link-exact-active {
       color: #42b983;
@@ -69,9 +70,6 @@ nav {
       background-color: aliceblue;
     }
   }
-}
-.nav-container {
-  margin-top: 50px;
 }
 .vacp-color-input-group,
 .vacp-format-switch-button,
@@ -91,6 +89,16 @@ textarea {
 @media (max-width: 768px) {
   .profile {
     border-left-style: none;
+  }
+  body {
+    background: #222 !important;
+  }
+  #app {
+    background: #222 !important;
+  }
+  .top-fix {
+    margin-top: 0;
+    margin-right: 0 !important;
   }
 }
 .else {

@@ -255,6 +255,7 @@ export default {
   padding-right: 3%;
   padding-left: 5%;
   background: #eee;
+  margin-bottom: 5%;
 }
 .cvinput {
   background-color: #222;
@@ -286,14 +287,17 @@ export default {
 }
 @media (max-width: 768px) {
   .cvinput {
-    margin-top: 12%;
+    margin-top: 30%;
   }
   .profile {
     border-left-style: none;
   }
 }
 .nav-container {
-  margin-top: 50px;
+  position: fixed;
+  top: 49px;
+  width: 100%;
+  z-index: 1000;
 }
 .top-fix {
   margin-top: 10%;
