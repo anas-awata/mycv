@@ -12,6 +12,7 @@
   <div class="row top-fix">
     <div class="cvinput col-md-4 col-sm-12" :class="{ noprint: noPrint }">
       <div v-if="!isMobile">
+        <templates-selector />
         <design-color />
       </div>
       <selector />
@@ -30,12 +31,6 @@
       id="content"
       class="col-md-8 col-sm-12"
     >
-      <button @click="showTemplate(templatesShow, 'themeone')">theme1</button>
-      <button @click="showTemplate(templatesShow, 'themetwo')">theme2</button>
-      <button @click="showTemplate(templatesShow, 'themethree')">theme3</button>
-      <button @click="showTemplate(templatesShow, 'themefour')">theme4</button>
-      <button @click="showTemplate(templatesShow, 'themefive')">theme5</button>
-      <button @click="showTemplate(templatesShow, 'themesix')">theme6</button>
       <theme-1 v-if="this.$store.state.templatesShow.themeone"> </theme-1>
       <theme-2 v-if="this.$store.state.templatesShow.themetwo"></theme-2>
       <theme-3 v-if="this.$store.state.templatesShow.themethree"></theme-3>
@@ -66,6 +61,7 @@ import selector from "../components/cvSelectors/personalSelector.vue";
 import workSelector from "../components/cvSelectors/workSelector.vue";
 import studySelector from "../components/cvSelectors/studySelector.vue";
 import skillsSelector from "../components/cvSelectors/skillsSelector.vue";
+import templatesSelector from "../components/cvSelectors/templatesSelector.vue";
 import designColor from "../components/cvSelectors/designColor.vue";
 import mynav from "../components/myNav.vue";
 export default {
@@ -77,25 +73,9 @@ export default {
       output: null,
       el: null,
       noPrint: true,
-      templatesShow: {
-        themeone: false,
-        themetwo: false,
-        themethree: false,
-        themefour: false,
-        themefive: false,
-        themesix: true,
-      },
     };
   },
   methods: {
-    showTemplate(obj, template) {
-      Object.keys(obj).forEach((key) => {
-        obj[key] = false;
-      });
-      // eslint-disable-next-line
-      obj[template] = true;
-      this.$store.commit("settingcvtemplate", obj);
-    },
     async print() {
       this.doc = new jsPDF({
         orientation: "p",
@@ -239,6 +219,7 @@ export default {
     theme4,
     theme5,
     theme6,
+    templatesSelector,
   },
 };
 </script>

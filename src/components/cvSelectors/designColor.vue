@@ -226,7 +226,4 @@ svg {
 .fa-palette {
   margin-right: 10px;
 }
-.form-section {
-  margin-top: 7%;
-}
 </style>
