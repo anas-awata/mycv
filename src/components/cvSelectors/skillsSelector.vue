@@ -338,4 +338,10 @@ svg {
   margin-top: 7%;
   color: #eee;
 }
+.btn svg {
+  margin: 0;
+}
+.btn-danger {
+  padding: 1px 10px !important;
+}
 </style>

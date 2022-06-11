@@ -48,26 +48,29 @@ body {
 }
 
 nav {
-  padding: 30px;
+  background: ghostwhite;
+  display: flex;
+  justify-content: space-evenly;
 
   a {
     font-weight: bold;
     color: #2c3e50;
     text-decoration: none;
-    padding: 10% 19.7%;
     border-bottom-style: ridge;
     white-space: nowrap;
     border-bottom-width: thin;
     font-family: auto;
     background: ghostwhite;
+    width: 50%;
+    padding: 5%;
 
     &.router-link-exact-active {
       color: #42b983;
       border-bottom-width: medium;
       border-color: #42b983;
-      vertical-align: text-bottom;
-      padding-bottom: 11%;
       background-color: aliceblue;
+      width: 50%;
+      padding: 5%;
     }
   }
 }
@@ -75,9 +78,6 @@ nav {
 .vacp-format-switch-button,
 .vacp-copy-button {
   display: none !important;
-}
-.cvselectorlink {
-  margin-left: -11%;
 }
 .form-title {
   white-space: nowrap;

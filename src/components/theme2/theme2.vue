@@ -124,6 +124,7 @@ a {
   position: relative;
   text-align: center;
   height: 100%;
+  box-shadow: 6px 10px 28px 0px rgba(0, 0, 0, 0.4);
 }
 
 .container {

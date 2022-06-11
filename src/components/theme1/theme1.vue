@@ -331,6 +331,11 @@ $linkColor: v-bind(headingColor);
     url("https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxK.woff2")
       format("woff2");
 }
+.A4 {
+  height: 100%;
+  background: $profileBg !important;
+  box-shadow: 6px 10px 28px 0px rgba(0, 0, 0, 0.4);
+}
 .btn-print {
   z-index: 1;
   position: absolute;
@@ -343,8 +348,6 @@ $linkColor: v-bind(headingColor);
   font-size: 13.0736px;
   font-weight: 400;
   line-height: 1.5;
-  min-height: 1090.41px;
-  background: $profileBg;
 }
 .resume h1 {
   font-size: 2.86em;
@@ -404,7 +407,6 @@ $linkColor: v-bind(headingColor);
   font-size: 1.5em;
 }
 .resume .resume__columns {
-  overflow: hidden;
   padding: 4em;
   padding-top: 0;
 }

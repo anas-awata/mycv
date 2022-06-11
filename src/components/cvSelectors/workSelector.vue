@@ -87,8 +87,6 @@ li {
 .work-container {
   display: none;
   margin-bottom: 20px;
-  margin-right: 5%;
-  margin-left: 5%;
 }
 .open {
   display: block;

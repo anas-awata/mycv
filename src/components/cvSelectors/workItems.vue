@@ -183,6 +183,8 @@ label {
   border-radius: 8px;
   padding: 0px;
   border: none;
+  background: none;
+  color: #eee;
 }
 .form-title {
   display: inline;
@@ -204,7 +206,7 @@ svg {
   display: inline;
   align-self: center;
   border-radius: 8px;
-  padding: 4px;
+  padding: 5px 8px;
   margin-left: 60px;
 }
 .item1 {

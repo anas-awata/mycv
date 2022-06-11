@@ -12,7 +12,9 @@
           >
         </li>
         <li class="nav-link">
-          <a href="/"><span class="material-icons">home</span>Home</a>
+          <router-link class="cvselectorlink" to="/">
+            <span class="material-icons">Home</span>Home</router-link
+          >
         </li>
       </ul>
     </div>

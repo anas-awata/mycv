@@ -80,7 +80,8 @@ img {
     font-size: xx-large;
   }
 }
-body {
-  height: 80%;
+body,
+html {
+  background: #eee !important;
 }
 </style>

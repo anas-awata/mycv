@@ -2,8 +2,10 @@
   <mynav />
   <div v-if="isMobile" class="nav-container">
     <nav>
-      <router-link class="cvselectorlink" to="/pdf">CV Selector </router-link>
-      <router-link to="/cvpage"> View CV</router-link>
+      <router-link class="cvselectorlink col-6" to="/pdf"
+        >CV Selector
+      </router-link>
+      <router-link class="col-6" to="/cvpage"> View CV</router-link>
     </nav>
   </div>
   <div class="container">

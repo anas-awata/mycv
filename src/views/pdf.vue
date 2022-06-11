@@ -260,7 +260,7 @@ export default {
 .cvinput {
   background-color: #222;
   color: #eee;
-  margin-top: -50px;
+  margin-top: -27px;
   margin-bottom: -30px;
   padding-right: 0 !important;
 }
@@ -301,5 +301,10 @@ export default {
 }
 .top-fix {
   margin-top: 10%;
+  margin-right: 0 !important;
+}
+.navbar {
+  background: #222 !important;
+  color: #fff;
 }
 </style>

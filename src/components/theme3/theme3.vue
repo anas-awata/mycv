@@ -258,6 +258,7 @@ body {
   box-shadow: 1px 1px 2px #dad7d7;
   z-index: 50000;
   min-height: 100%;
+  box-shadow: 6px 10px 28px 0px rgba(0, 0, 0, 0.4);
 }
 
 .header {
