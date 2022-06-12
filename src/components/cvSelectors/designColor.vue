@@ -3,7 +3,9 @@
     <div class="expansion-panel-header">
       <div class="expansion-panel-title" @click="this.hidden = !this.hidden">
         <h4 class="form-title"><i class="fas fa-palette"></i>Design</h4>
-        <i class="fa-solid fa-angle-down col-1"> </i>
+        <div class="col-1 icon" :class="{ nothidden: !hidden }">
+          <i class="fa-solid fa-angle-down"> </i>
+        </div>
       </div>
     </div>
     <div class="container" :class="{ open: !hidden }">
@@ -224,6 +226,14 @@ svg {
   margin-bottom: 15px;
 }
 .fa-palette {
+  margin-right: 10px;
+}
+.nothidden {
+  transform: rotate(180deg) translate(15px, 0px);
+  transition: all 0.25s ease 0s;
+  margin-right: 4px !important;
+}
+.icon {
   margin-right: 10px;
 }
 </style>

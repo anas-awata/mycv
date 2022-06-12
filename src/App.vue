@@ -79,6 +79,15 @@ nav {
 .vacp-copy-button {
   display: none !important;
 }
+.vacp-color-picker {
+  background: #444 !important;
+  border-radius: 30px;
+  position: fixed;
+  width: 80%;
+}
+.vacp-color-space {
+  border-radius: 30px 30px 5px 5px;
+}
 .form-title {
   white-space: nowrap;
 }
@@ -120,18 +129,17 @@ textarea {
     display: block !important;
     width: 100% !important;
     height: 100% !important;
-    margin-top: -10%;
+    padding: 0 !important;
+    margin: 0 !important;
     min-height: 100% !important;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
     page-break-after: avoid;
-  }
-  .top-fix {
-    margin-top: 0;
   }
   .theme-3-container {
     font-size: 18px !important;
     height: 100%;
+  }
+  .profile {
+    padding-left: 40px;
   }
   @page {
     /*size: 297mm 420mm;*/

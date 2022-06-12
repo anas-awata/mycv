@@ -17,8 +17,11 @@
             type="button"
             class="col-1"
             @click="this.Hidden = !this.Hidden"
+            :class="{ nothidden: !Hidden }"
           >
-            <i class="fa-solid fa-angle-down"> </i>
+            <div class="col-1 icon">
+              <i class="fa-solid fa-angle-down"> </i>
+            </div>
           </button>
         </div>
       </div>
@@ -184,6 +187,7 @@ label {
   border: none;
   background: none;
   color: #eee;
+  margin-right: 5px;
 }
 .form-title {
   display: inline;
@@ -213,5 +217,10 @@ svg {
 }
 .item6 {
   grid-column: 1/3;
+}
+.nothidden {
+  transform: rotate(180deg) translate(15px, 0px);
+  transition: all 0.25s ease 0s;
+  margin-right: 12px !important;
 }
 </style>

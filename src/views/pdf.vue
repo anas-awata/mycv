@@ -19,18 +19,13 @@
       <work-selector />
       <study-selector />
       <skills-Selector />
-      <div class="" :class="{ noprint: noPrint }">
+      <div class="download-wrapper" :class="{ noprint: noPrint }">
         <button @click="printme" class="btn btn-success">
           Download PDF <i class="fa-solid fa-download"> </i>
         </button>
       </div>
     </div>
-    <div
-      v-show="!isMobile"
-      ref="printMe"
-      id="content"
-      class="col-md-8 col-sm-12"
-    >
+    <div v-show="!isMobile" ref="printMe" id="content" class="col-sm-12">
       <theme-1 v-if="this.$store.state.templatesShow.themeone"> </theme-1>
       <theme-2 v-if="this.$store.state.templatesShow.themetwo"></theme-2>
       <theme-3 v-if="this.$store.state.templatesShow.themethree"></theme-3>
@@ -234,16 +229,36 @@ export default {
 }
 #content {
   padding-right: 3%;
-  padding-left: 5%;
+  padding-left: 40%;
+  padding-top: 9%;
   background: #eee;
   margin-bottom: 5%;
 }
 .cvinput {
   background-color: #222;
   color: #eee;
-  margin-top: -27px;
-  margin-bottom: -30px;
   padding-right: 0 !important;
+  position: fixed;
+  top: 11%;
+  left: 0;
+  bottom: 11%;
+  width: 35%;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #222;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 #content-image {
   width: 600px;
@@ -264,11 +279,22 @@ export default {
   .btn {
     float: left;
     margin-left: 30%;
+    margin-bottom: 20px;
+  }
+  .download-wrapper {
+    position: fixed;
+    bottom: 1px;
+    background: #333;
+    width: 35%;
+    margin-left: -12px;
+    margin-bottom: -1px;
   }
 }
 @media (max-width: 768px) {
   .cvinput {
     margin-top: 30%;
+    position: static;
+    width: 100%;
   }
   .profile {
     border-left-style: none;
@@ -281,11 +307,10 @@ export default {
   z-index: 1000;
 }
 .top-fix {
-  margin-top: 10%;
   margin-right: 0 !important;
 }
 .navbar {
-  background: #222 !important;
+  background: #333 !important;
   color: #fff;
 }
 </style>

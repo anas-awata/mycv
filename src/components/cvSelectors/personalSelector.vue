@@ -9,7 +9,9 @@
           <h4 class="form-title">
             <i class="fa-solid fa-user"></i>Personal details
           </h4>
-          <i class="fa-solid fa-angle-down col-1"> </i>
+          <div class="col-1 icon" :class="{ nothidden: !personalHidden }">
+            <i class="fa-solid fa-angle-down"> </i>
+          </div>
         </div>
       </div>
       <div class="grid-container" :class="{ open: !personalHidden }">
@@ -93,7 +95,9 @@
           <h4 class="form-title">
             <i class="fa-brands fa-linkedin"> </i>Social details
           </h4>
-          <i class="fa-solid fa-angle-down col-1"> </i>
+          <div class="col-1 icon" :class="{ nothidden: !socialHidden }">
+            <i class="fa-solid fa-angle-down"> </i>
+          </div>
         </div>
       </div>
       <div class="grid-container" :class="{ open: !socialHidden }">
@@ -259,5 +263,13 @@ svg {
 }
 button {
   border: none;
+}
+.nothidden {
+  transform: rotate(180deg) translate(15px, 0px);
+  transition: all 0.25s ease 0s;
+  margin-right: 4px !important;
+}
+.icon {
+  margin-right: 10px;
 }
 </style>

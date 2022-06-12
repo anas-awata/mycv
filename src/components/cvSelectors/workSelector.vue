@@ -9,7 +9,9 @@
           <h4 class="form-title">
             <i class="fa-solid fa-suitcase"> </i>Experience
           </h4>
-          <i class="fa-solid fa-angle-down col-1"> </i>
+          <div class="col-1 icon" :class="{ nothidden: !workhidden }">
+            <i class="fa-solid fa-angle-down"> </i>
+          </div>
         </div>
       </div>
       <div class="work-container" :class="{ open: !workhidden }">
@@ -137,5 +139,13 @@ svg {
 .expansion-panel-title:hover {
   background-color: #333;
   transition: background-color 0.3s ease-in-out;
+}
+.nothidden {
+  transform: rotate(180deg) translate(15px, 0px);
+  transition: all 0.25s ease 0s;
+  margin-right: 4px !important;
+}
+.icon {
+  margin-right: 10px;
 }
 </style>

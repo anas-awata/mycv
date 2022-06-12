@@ -4,7 +4,6 @@
   -webkit-print-color-adjust: exact !important;
   color-adjust: exact !important;
 }
-html,
 body {
   background-color: #222;
   height: 100vh;

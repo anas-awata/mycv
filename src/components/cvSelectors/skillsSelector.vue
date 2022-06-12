@@ -10,7 +10,9 @@
           <h4 class="form-title">
             <i class="fa-solid fa-cogs"> </i>Skills details
           </h4>
-          <i class="fa-solid fa-angle-down col-1"> </i>
+          <div class="col-1 icon" :class="{ nothidden: !skillsHidden }">
+            <i class="fa-solid fa-angle-down"> </i>
+          </div>
         </div>
       </div>
       <div class="grid-container" :class="{ open: !skillsHidden }">
@@ -343,5 +345,13 @@ svg {
 }
 .btn-danger {
   padding: 1px 10px !important;
+}
+.nothidden {
+  transform: rotate(180deg) translate(15px, 0px);
+  transition: all 0.25s ease 0s;
+  margin-right: 4px !important;
+}
+.icon {
+  margin-right: 10px;
 }
 </style>

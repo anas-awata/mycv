@@ -2,17 +2,49 @@
   <fieldset class="form-section">
     <div class="expansion-panel-header">
       <div class="expansion-panel-title" @click="this.hidden = !this.hidden">
-        <h4 class="form-title"><i class="fas fa-palette"></i>Templates</h4>
-        <i class="fa-solid fa-angle-down col-1"> </i>
+        <h4 class="form-title"><i class="fas fa-align-left"></i>Templates</h4>
+        <div class="col-1 icon" :class="{ nothidden: !hidden }">
+          <i class="fa-solid fa-angle-down"> </i>
+        </div>
       </div>
     </div>
     <div class="container" :class="{ open: !hidden }">
-      <button @click="showTemplate(templatesShow, 'themeone')">theme1</button>
-      <button @click="showTemplate(templatesShow, 'themetwo')">theme2</button>
-      <button @click="showTemplate(templatesShow, 'themethree')">theme3</button>
-      <button @click="showTemplate(templatesShow, 'themefour')">theme4</button>
-      <button @click="showTemplate(templatesShow, 'themefive')">theme5</button>
-      <button @click="showTemplate(templatesShow, 'themesix')">theme6</button>
+      <div
+        class="imgContainer"
+        @click="showTemplate(templatesShow, 'themeone')"
+      >
+        <img src="../../pics/themeone.jpeg" alt="theme1" />
+      </div>
+      <div
+        class="imgContainer"
+        @click="showTemplate(templatesShow, 'themetwo')"
+      >
+        <img src="../../pics/themetwo.jpeg" alt="theme2" />
+      </div>
+      <div
+        class="imgContainer"
+        @click="showTemplate(templatesShow, 'themethree')"
+      >
+        <img src="../../pics/themethree.jpeg" alt="theme3" />
+      </div>
+      <div
+        class="imgContainer"
+        @click="showTemplate(templatesShow, 'themefour')"
+      >
+        <img src="../../pics/themefour.jpeg" alt="theme4" />
+      </div>
+      <div
+        class="imgContainer"
+        @click="showTemplate(templatesShow, 'themefive')"
+      >
+        <img src="../../pics/themefive.jpeg" alt="theme5" />
+      </div>
+      <div
+        class="imgContainer"
+        @click="showTemplate(templatesShow, 'themesix')"
+      >
+        <img src="../../pics/themesix.jpeg" alt="theme6" />
+      </div>
     </div>
   </fieldset>
 </template>
@@ -102,5 +134,22 @@ svg {
 }
 .form-section {
   margin-top: 7%;
+}
+.nothidden {
+  transform: rotate(180deg) translate(15px, 0px);
+  transition: all 0.25s ease 0s;
+  margin-right: 4px !important;
+}
+.icon {
+  margin-right: 10px;
+}
+img {
+  width: 95%;
+  margin-bottom: 5%;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+img:hover {
+  opacity: 0.5;
 }
 </style>
