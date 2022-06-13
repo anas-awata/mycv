@@ -17,7 +17,7 @@
         />
       </router-link>
       <div class="middle">
-        <div class="text">choose</div>
+        <div class="text">Select</div>
       </div>
     </div>
   </div>

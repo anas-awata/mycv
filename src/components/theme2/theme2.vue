@@ -11,22 +11,8 @@
     </section>
     <section class="experience section-padding col-md-7">
       <work-info />
-      <!--Skill experience-->
       <study-info />
-      <!-- <div class="section-wrapper clearfix">
-          <h3 class="section-title">Hobbies</h3> -->
-      <!-- DESCRIPTION OF YOUR HOBBIES -->
-      <!--
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a elit
-          facilisis, adipiscing leo in, dignissim magna.
-        </p>
-
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a elit
-          facilisis, adipiscing leo in, dignissim magna.
-        </p> 
-      </div> -->
+      <courses-info />
     </section>
   </div>
 </template>
@@ -36,13 +22,21 @@ import personalInfo from "./them2Components/personalSocial/personalInfo.vue";
 import socialInfo from "./them2Components/personalSocial/socialInfo.vue";
 import workInfo from "./them2Components/work/workInfo.vue";
 import studyInfo from "./them2Components/study/studyInfo.vue";
+import coursesInfo from "./them2Components/courses/coursesInfo.vue";
 import skillsInfo from "./them2Components/skills/skillsInfo.vue";
 export default {
   name: "them-2",
   data() {
     return {};
   },
-  components: { personalInfo, socialInfo, workInfo, studyInfo, skillsInfo },
+  components: {
+    personalInfo,
+    socialInfo,
+    workInfo,
+    studyInfo,
+    skillsInfo,
+    coursesInfo,
+  },
   methods: {},
   computed: {
     headingColor() {

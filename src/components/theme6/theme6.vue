@@ -72,97 +72,59 @@
       <p class="long-margin">
         {{ personal["About"] }}
       </p>
-      <div class="rela-block caps greyed">Experience</div>
-      <div v-if="myjob[0]">
-        <div class="row">
-          <h3 class="col-6">{{ myjob[0]["jobtitle"] }}</h3>
-          <p class="light col-6">
-            {{ myjob[0]["company"] }} - {{ myjob[0]["location"] }}
+      <div v-if="myjob[0]" class="rela-block caps greyed">Experience</div>
+      <div v-for="job in myjob" :key="job">
+        <div v-if="job">
+          <div class="row">
+            <h3 class="col-6">{{ job["jobtitle"] }}</h3>
+            <p class="light col-6">
+              {{ job["company"] }} - {{ job["location"] }}
+            </p>
+          </div>
+          <p class="light">
+            {{ job["from"].substring(0, 7) }} -
+            {{ job["to"].substring(0, 7) }}
+          </p>
+          <p class="justified">
+            {{ job["disc"] }}
           </p>
         </div>
-        <p class="light">
-          {{ myjob[0]["from"].substring(0, 7) }} -
-          {{ myjob[0]["to"].substring(0, 7) }}
-        </p>
-        <p class="justified">
-          {{ myjob[0]["disc"] }}
-        </p>
       </div>
-      <div v-if="myjob[1]">
-        <div class="row">
-          <h3 class="col-6">{{ myjob[1]["jobtitle"] }}</h3>
-          <p class="light col-6">
-            {{ myjob[1]["company"] }} - {{ myjob[1]["location"] }}
+      <div v-if="myStudy[0]" class="rela-block caps greyed">Education</div>
+      <div v-for="study in myStudy" :key="study">
+        <div v-if="study">
+          <div class="row">
+            <h3 class="col-6">{{ study["spec"] }}</h3>
+            <p class="light col-6">
+              {{ study["university"] }} - {{ study["location"] }}
+            </p>
+          </div>
+          <p class="light">
+            {{ study["from"].substring(0, 7) }} -
+            {{ study["to"].substring(0, 7) }}
+          </p>
+          <p class="justified">
+            {{ study["disc"] }}
           </p>
         </div>
-        <p class="light">
-          {{ myjob[1]["from"].substring(0, 7) }} -
-          {{ myjob[1]["to"].substring(0, 7) }}
-        </p>
-        <p class="justified">
-          {{ myjob[1]["disc"] }}
-        </p>
       </div>
-      <div v-if="myjob[2]">
-        <div class="row">
-          <h3 class="col-6">{{ myjob[2]["jobtitle"] }}</h3>
-          <p class="light col-6">
-            {{ myjob[2]["company"] }} - {{ myjob[2]["location"] }}
+      <div v-if="mycourse[0]" class="rela-block caps greyed">Courses</div>
+      <div v-for="course in mycourse" :key="course">
+        <div v-if="course">
+          <div class="row">
+            <h3 class="col-6">{{ course["coursetitle"] }}</h3>
+            <p class="light col-6">
+              {{ course["platform"] }} - {{ course["location"] }}
+            </p>
+          </div>
+          <p class="light">
+            {{ course["from"].substring(0, 7) }} -
+            {{ course["to"].substring(0, 7) }}
+          </p>
+          <p class="justified">
+            {{ course["disc"] }}
           </p>
         </div>
-        <p class="light">
-          {{ myjob[2]["from"].substring(0, 7) }} -
-          {{ myjob[2]["to"].substring(0, 7) }}
-        </p>
-        <p class="justified">
-          {{ myjob[2]["disc"] }}
-        </p>
-      </div>
-      <div class="rela-block caps greyed">Education</div>
-      <div v-if="myStudy[0]">
-        <div class="row">
-          <h3 class="col-6">{{ myStudy[0]["spec"] }}</h3>
-          <p class="light col-6">
-            {{ myStudy[0]["university"] }} - {{ myStudy[0]["location"] }}
-          </p>
-        </div>
-        <p class="light">
-          {{ myStudy[0]["from"].substring(0, 7) }} -
-          {{ myStudy[0]["to"].substring(0, 7) }}
-        </p>
-        <p class="justified">
-          {{ myStudy[0]["disc"] }}
-        </p>
-      </div>
-      <div v-if="myStudy[1]">
-        <div class="row">
-          <h3 class="col-6">{{ myStudy[1]["spec"] }}</h3>
-          <p class="light col-6">
-            {{ myStudy[1]["university"] }} - {{ myStudy[1]["location"] }}
-          </p>
-        </div>
-        <p class="light">
-          {{ myStudy[1]["from"].substring(0, 7) }} -
-          {{ myStudy[1]["to"].substring(0, 7) }}
-        </p>
-        <p class="justified">
-          {{ myStudy[1]["disc"] }}
-        </p>
-      </div>
-      <div v-if="myStudy[2]">
-        <div class="row">
-          <h3 class="col-6">{{ myStudy[2]["spec"] }}</h3>
-          <p class="light col-6">
-            {{ myStudy[2]["university"] }} - {{ myStudy[2]["location"] }}
-          </p>
-        </div>
-        <p class="light">
-          {{ myStudy[2]["from"].substring(0, 7) }} -
-          {{ myStudy[2]["to"].substring(0, 7) }}
-        </p>
-        <p class="justified">
-          {{ myStudy[2]["disc"] }}
-        </p>
       </div>
     </div>
   </div>
@@ -180,6 +142,9 @@ export default {
     },
     myStudy() {
       return this.$store.state.study;
+    },
+    mycourse() {
+      return this.$store.state.course;
     },
     social() {
       return this.$store.state.social;

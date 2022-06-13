@@ -49,109 +49,72 @@
         </div>
       </div>
       <div class="details">
-        <div class="section">
+        <div class="section" v-if="myjob[0]">
           <div class="section__title">Experience</div>
-          <div class="section__list">
-            <div class="section__list-item" v-if="myjob[0]">
+          <div class="section__list" v-for="job in myjob" :key="job">
+            <div class="section__list-item" v-if="job">
               <div class="left">
-                <div class="name">{{ myjob[0]["company"] }}</div>
-                <div class="addr">{{ myjob[0]["location"] }}</div>
+                <div class="name">{{ job["company"] }}</div>
+                <div class="addr">{{ job["location"] }}</div>
                 <div class="duration">
-                  {{ myjob[0]["from"].substring(0, 7) }} -
-                  {{ myjob[0]["to"].substring(0, 7) }}
+                  {{ job["from"].substring(0, 7) }} -
+                  {{ job["to"].substring(0, 7) }}
                 </div>
               </div>
               <div class="right">
-                <div class="name">{{ myjob[0]["jobtitle"] }}</div>
-                <div class="desc">{{ myjob[0]["disc"] }}</div>
+                <div class="name">{{ job["jobtitle"] }}</div>
+                <div class="desc">{{ job["disc"] }}</div>
               </div>
             </div>
-            <div class="section__list-item" v-if="myjob[1]">
+          </div>
+        </div>
+        <div class="section" v-if="myStudy[0]">
+          <div class="section__title">Education</div>
+          <div class="section__list" v-for="study in myStudy" :key="study">
+            <div class="section__list-item" v-if="study">
               <div class="left">
-                <div class="name">{{ myjob[1]["company"] }}</div>
-                <div class="addr">{{ myjob[1]["location"] }}</div>
+                <div class="name">{{ study["university"] }}</div>
+                <div class="addr">{{ study["location"] }}</div>
                 <div class="duration">
-                  {{ myjob[1]["from"].substring(0, 7) }} -
-                  {{ myjob[1]["to"].substring(0, 7) }}
+                  {{ study["from"].substring(0, 7) }} -
+                  {{ study["to"].substring(0, 7) }}
                 </div>
               </div>
               <div class="right">
-                <div class="name">{{ myjob[1]["jobtitle"] }}</div>
-                <div class="desc">{{ myjob[1]["disc"] }}</div>
+                <div class="name">{{ study["spec"] }}</div>
+                <div class="desc">{{ study["disc"] }}</div>
               </div>
             </div>
-            <div class="section__list-item" v-if="myjob[2]">
+          </div>
+        </div>
+        <div class="section" v-if="mycourse[0]">
+          <div class="section__title">Courses</div>
+          <div class="section__list" v-for="course in mycourse" :key="course">
+            <div class="section__list-item" v-if="course">
               <div class="left">
-                <div class="name">{{ myjob[2]["company"] }}</div>
-                <div class="addr">{{ myjob[2]["location"] }}</div>
+                <div class="name">{{ course["platform"] }}</div>
+                <div class="addr">{{ course["location"] }}</div>
                 <div class="duration">
-                  {{ myjob[2]["from"].substring(0, 7) }} -
-                  {{ myjob[2]["to"].substring(0, 7) }}
+                  {{ course["from"].substring(0, 7) }} -
+                  {{ course["to"].substring(0, 7) }}
                 </div>
               </div>
               <div class="right">
-                <div class="name">{{ myjob[2]["jobtitle"] }}</div>
-                <div class="desc">{{ myjob[2]["disc"] }}</div>
+                <div class="name">{{ course["coursetitle"] }}</div>
+                <div class="desc">{{ course["disc"] }}</div>
               </div>
             </div>
           </div>
         </div>
         <div class="section">
-          <div class="section__title">Education</div>
+          <div class="section__title">skills</div>
           <div class="section__list">
-            <div class="section__list-item" v-if="myStudy[0]">
-              <div class="left">
-                <div class="name">{{ myStudy[0]["university"] }}</div>
-                <div class="addr">{{ myStudy[0]["location"] }}</div>
-                <div class="duration">
-                  {{ myStudy[0]["from"].substring(0, 7) }} -
-                  {{ myStudy[0]["to"].substring(0, 7) }}
-                </div>
-              </div>
-              <div class="right">
-                <div class="name">{{ myStudy[0]["spec"] }}</div>
-                <div class="desc">{{ myStudy[0]["disc"] }}</div>
-              </div>
-            </div>
-            <div class="section__list-item" v-if="myStudy[1]">
-              <div class="left">
-                <div class="name">{{ myStudy[1]["university"] }}</div>
-                <div class="addr">{{ myStudy[1]["location"] }}</div>
-                <div class="duration">
-                  {{ myStudy[1]["from"].substring(0, 7) }} -
-                  {{ myStudy[1]["to"].substring(0, 7) }}
-                </div>
-              </div>
-              <div class="right">
-                <div class="name">{{ myStudy[1]["spec"] }}</div>
-                <div class="desc">{{ myStudy[1]["disc"] }}</div>
-              </div>
-            </div>
-            <div class="section__list-item" v-if="myStudy[2]">
-              <div class="left">
-                <div class="name">{{ myStudy[2]["university"] }}</div>
-                <div class="addr">{{ myStudy[2]["location"] }}</div>
-                <div class="duration">
-                  {{ myStudy[2]["from"].substring(0, 7) }} -
-                  {{ myStudy[2]["to"].substring(0, 7) }}
-                </div>
-              </div>
-              <div class="right">
-                <div class="name">{{ myStudy[2]["spec"] }}</div>
-                <div class="desc">{{ myStudy[2]["disc"] }}</div>
-              </div>
-            </div>
-            <div class="section">
-              <div class="section__title">skills</div>
-              <div class="section__list">
-                <div class="section__list-item">
-                  <ul class="skill-ul">
-                    <li v-for="skill in this.$store.state.skills" :key="skill">
-                      {{ skill }}
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <div class="section__list-item">
+              <ul class="skill-ul">
+                <li v-for="skill in this.$store.state.skills" :key="skill">
+                  {{ skill }}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -223,6 +186,9 @@ export default {
     },
     myStudy() {
       return this.$store.state.study;
+    },
+    mycourse() {
+      return this.$store.state.course;
     },
     social() {
       return this.$store.state.social;

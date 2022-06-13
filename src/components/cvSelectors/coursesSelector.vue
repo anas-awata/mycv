@@ -2,35 +2,32 @@
   <div>
     <fieldset class="form-section">
       <div class="expansion-panel-header">
-        <div
-          class="expansion-panel-title"
-          @click="this.workhidden = !this.workhidden"
-        >
+        <div class="expansion-panel-title" @click="this.hidden = !this.hidden">
           <h4 class="form-title">
-            <i class="fa-solid fa-suitcase"> </i>Experience
+            <i class="fa-solid fa-chalkboard-teacher"> </i>Courses
           </h4>
-          <div class="col-1 icon" :class="{ nothidden: !workhidden }">
+          <div class="col-1 icon" :class="{ nothidden: !hidden }">
             <i class="fa-solid fa-angle-down"> </i>
           </div>
         </div>
       </div>
-      <div class="work-container" :class="{ open: !workhidden }">
+      <div class="work-container" :class="{ open: !hidden }">
         <div>
           <button
-            v-if="works.length < 3"
-            @click="pushWork"
+            v-if="courses.length < 3"
+            @click="pushCourse"
             class="btn btn-success"
           >
-            add new work
+            add new Course
             <i class="fa-solid fa-plus"> </i>
           </button>
           <component
-            v-for="(work, index) in works"
+            v-for="(course, index) in courses"
             :key="index"
-            :works="works"
-            :is="work.data"
+            :courses="courses"
+            :is="course.data"
             :index="index"
-            :deleteWork="deleteMyWork"
+            :deleteCourse="deleteMyCourse"
           >
           </component>
         </div>
@@ -41,43 +38,33 @@
 
 <script>
 import { mapMultiRowFields } from "vuex-map-fields";
-import workItem from "./workItems.vue";
+import coursesItem from "./coursesItems.vue";
 export default {
-  name: "work-selector",
-  components: { workItem },
+  name: "course-selector",
+  components: { coursesItem },
   data() {
     return {
-      workhidden: true,
-      //works: [{ data: "workItem" }, { data: "workItem" }],
-      /*Jobtitle: "",
-      Company: "",
-      Location: "",
-      From: "",
-      To: "",*/
+      hidden: true,
     };
   },
   methods: {
-    pushWork() {
+    pushCourse() {
       //this.works.push({ data: "workItem" });
-      this.$store.commit("settingjob");
-      this.$store.commit("updateworks");
+      this.$store.commit("settingcourse");
+      this.$store.commit("updatecourses");
     },
-    deleteMyWork(index) {
-      this.$store.commit("deletework", index);
-      this.$store.commit("deletejob", index);
+    deleteMyCourse(index) {
+      this.$store.commit("deletecourses", index);
+      this.$store.commit("deletecourse", index);
       console.log(index);
-      console.log(this.works);
+      console.log(this.courses);
     },
-  },
-  updated() {
-    console.log("selectormount");
   },
   computed: {
-    ...mapMultiRowFields(["works"]),
+    ...mapMultiRowFields(["courses"]),
   },
   mounted() {
-    console.log(this.works);
-    //console.log(this.works[0].data);
+    console.log(this.courses);
   },
 };
 </script>

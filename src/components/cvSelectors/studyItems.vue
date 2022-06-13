@@ -9,7 +9,11 @@
           >
             <i class="fa-solid fa-trash"></i>
           </button>
-          <h4 class="form-title" @click="this.Hidden = !this.Hidden">
+          <h4
+            class="form-title"
+            v-if="study[0]"
+            @click="this.Hidden = !this.Hidden"
+          >
             {{ study[index].spec }}
           </h4>
           <button

@@ -4,17 +4,17 @@
       <div class="expansion-panel-header">
         <div class="expansion-panel-title">
           <button
-            @click="deleteWork(index)"
+            @click="deleteCourse(index)"
             class="btn btn-danger col-1 btndelete"
           >
             <i class="fa-solid fa-trash"></i>
           </button>
           <h4
             class="form-title"
-            v-if="jobs[0]"
+            v-if="course[0]"
             @click="this.Hidden = !this.Hidden"
           >
-            {{ jobs[index].jobtitle }}
+            {{ course[index].coursetitle }}
           </h4>
           <button
             id="expansionPanelPersonal"
@@ -32,25 +32,25 @@
       <div class="grid-container" :class="{ open: !Hidden }">
         <div class="item1">
           <label for="jtitle" class="form-label"
-            ><i class="fa-solid fa-suitcase"> </i> Job Title</label
+            ><i class="fa-solid fa-laptop-code"> </i> Course Title</label
           >
           <input
             id="jtitle"
             type="text"
             class="form-control"
             ref="input"
-            v-model="jobs[index].jobtitle"
+            v-model="course[index].coursetitle"
           />
         </div>
         <div class="item2">
           <label for="company" class="form-label"
-            ><i class="fa-solid fa-building"> </i> Company</label
+            ><i class="fa-solid fa-building"> </i> Platform / teacher</label
           >
           <input
             id="company"
             type="text"
             class="form-control"
-            v-model="jobs[index].company"
+            v-model="course[index].platform"
           />
         </div>
         <div class="item3">
@@ -61,7 +61,7 @@
             id="Location"
             type="text"
             class="form-control"
-            v-model="jobs[index].location"
+            v-model="course[index].location"
           />
         </div>
         <div class="item4">
@@ -72,16 +72,9 @@
             id="from"
             type="date"
             class="form-control"
-            v-model="jobs[index].from"
+            v-model="course[index].from"
           />
         </div>
-        <label for="To" class="form-label"
-          ><i class="fa-solid fa-calendar-alt"> </i> current</label
-        ><input
-          type="checkbox"
-          :checked="jobs[index].to == 'present'"
-          @click="datecurrent(index)"
-        />
         <div class="item5">
           <label for="To" class="form-label"
             ><i class="fa-solid fa-calendar-alt"> </i> To</label
@@ -90,20 +83,19 @@
             id="To"
             type="date"
             class="form-control"
-            :disabled="jobs[index].to == 'present'"
-            v-model="jobs[index].to"
+            v-model="course[index].to"
           />
         </div>
         <div class="item6">
           <label for="jobdisc" class="form-label"
-            ><i class="fa-solid fa-tasks"> </i> job Description</label
+            ><i class="fa-solid fa-tasks"> </i> Course Description</label
           >
           <textarea
             id="jobdisc"
             cols="30"
             rows="10"
             class="form-control"
-            v-model="jobs[index].disc"
+            v-model="course[index].disc"
           ></textarea>
         </div>
       </div>
@@ -114,37 +106,24 @@
 <script>
 import { mapMultiRowFields } from "vuex-map-fields";
 export default {
-  name: "work-item",
+  name: "course-item",
   data() {
     return {
       Hidden: false,
-      /* jobTitle: "front end",
-      company: "microsoft",
-      location: "us",
-      from: "2020-01-01",
-      to: "2022-01-01",
-      disc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a elit facilisis, adipiscing leo in, dignissim magna.",*/
     };
   },
   computed: {
-    ...mapMultiRowFields(["jobs"]),
+    ...mapMultiRowFields(["course"]),
   },
   methods: {
     deleteMe() {
-      this.$emit("deleteWork");
-    },
-    datecurrent(i) {
-      if (this.jobs[i].to == "present") {
-        this.jobs[i].to = "";
-      } else {
-        this.jobs[i].to = "present";
-      }
+      this.$emit("deleteCourse");
     },
   },
   mounted() {
     console.log(this.jobs);
   },
-  props: ["deleteWork", "index"],
+  props: ["deleteCourse", "index"],
 };
 </script>
 
@@ -179,10 +158,6 @@ export default {
 }
 .item7 {
   grid-column: 1/3;
-}
-.item4,
-.item5 {
-  grid-row: 3/4;
 }
 label {
   display: table;

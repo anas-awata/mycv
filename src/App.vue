@@ -25,7 +25,7 @@ export default {
   beforeCreate() {
     this.$store.commit("initialiseStore");
     console.log(localStorage.getItem("store"));
-    console.log(this.$store.state.jobs[0]["title"]);
+    //console.log(this.$store.state.jobs[0]["title"]);
   },
   updated() {
     console.log(localStorage.getItem("store"));
@@ -40,11 +40,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: #eee;
+  height: 100%;
+  background-image: url(./assets/blurry-gradient-haikei.svg) !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 body {
-  background: #eee !important;
 }
 
 nav {

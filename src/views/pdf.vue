@@ -19,6 +19,7 @@
       <work-selector />
       <study-selector />
       <skills-Selector />
+      <courses-selector />
       <div class="download-wrapper" :class="{ noprint: noPrint }">
         <button @click="printme" class="btn btn-success">
           Download PDF <i class="fa-solid fa-download"> </i>
@@ -54,6 +55,7 @@ import theme5 from "../components/theme5/theme5.vue";
 import theme6 from "../components/theme6/theme6.vue";
 import selector from "../components/cvSelectors/personalSelector.vue";
 import workSelector from "../components/cvSelectors/workSelector.vue";
+import coursesSelector from "../components/cvSelectors/coursesSelector.vue";
 import studySelector from "../components/cvSelectors/studySelector.vue";
 import skillsSelector from "../components/cvSelectors/skillsSelector.vue";
 import templatesSelector from "../components/cvSelectors/templatesSelector.vue";
@@ -204,6 +206,7 @@ export default {
   components: {
     selector,
     workSelector,
+    coursesSelector,
     studySelector,
     skillsSelector,
     designColor,

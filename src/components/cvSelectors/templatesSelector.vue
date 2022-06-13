@@ -148,6 +148,7 @@ img {
   margin-bottom: 5%;
   transition: 0.2s linear;
   cursor: pointer;
+  border-radius: 20px;
 }
 img:hover {
   opacity: 0.5;

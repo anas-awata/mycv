@@ -40,126 +40,92 @@
                 </div>
               </div>
             </section>
-            <section class="resume__section resume__experience">
+            <section class="resume__section resume__experience" v-if="myjob[0]">
               <div class="resume__content">
                 <div class="resume__section-title">
                   <i class="fa fa-briefcase"></i>
                   <h2>Employment History</h2>
                 </div>
-                <div class="xp-item" v-if="myjob[0]">
-                  <div class="xp-job">
-                    {{ myjob[0]["jobtitle"] }}
-                    <span>- {{ myjob[0]["company"] }}</span
-                    ><br /><small>{{ myjob[0]["location"] }}</small>
-                  </div>
-                  <div class="xp-date">
-                    {{ myjob[0]["from"].substring(0, 7) }} -
-                    {{ myjob[0]["to"].substring(0, 7) }}
-                  </div>
-                  <div class="xp-detail">
-                    <ul>
-                      <li>
-                        {{ myjob[0]["disc"] }}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="xp-item" v-if="myjob[1]">
-                  <div class="xp-job">
-                    {{ myjob[1]["jobtitle"] }}
-                    <span>- {{ myjob[1]["company"] }}</span
-                    ><br /><small>{{ myjob[1]["location"] }}</small>
-                  </div>
-                  <div class="xp-date">
-                    {{ myjob[1]["from"].substring(0, 7) }} -
-                    {{ myjob[1]["to"].substring(0, 7) }}
-                  </div>
-                  <div class="xp-detail">
-                    <ul>
-                      <li>
-                        {{ myjob[1]["disc"] }}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="xp-item" v-if="myjob[2]">
-                  <div class="xp-job">
-                    {{ myjob[2]["jobtitle"] }}
-                    <span>- {{ myjob[2]["company"] }}</span
-                    ><br /><small>{{ myjob[2]["location"] }}</small>
-                  </div>
-                  <div class="xp-date">
-                    {{ myjob[2]["from"].substring(0, 7) }} -
-                    {{ myjob[2]["to"].substring(0, 7) }}
-                  </div>
-                  <div class="xp-detail">
-                    <ul>
-                      <li>
-                        {{ myjob[2]["disc"] }}
-                      </li>
-                    </ul>
+                <div v-for="job in myjob" :key="job">
+                  <div class="xp-item" v-if="job">
+                    <div class="xp-job">
+                      {{ job["jobtitle"] }}
+                      <span>- {{ job["company"] }}</span
+                      ><br /><small>{{ job["location"] }}</small>
+                    </div>
+                    <div class="xp-date">
+                      {{ job["from"].substring(0, 7) }} -
+                      {{ job["to"].substring(0, 7) }}
+                    </div>
+                    <div class="xp-detail">
+                      <ul>
+                        <li>
+                          {{ job["disc"] }}
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
-            <section class="resume__section resume__experience">
+            <section
+              class="resume__section resume__experience"
+              v-if="myStudy[0]"
+            >
               <div class="resume__content">
                 <div class="resume__section-title">
                   <i class="fa fa-university"></i>
                   <h2>Eduation</h2>
                 </div>
-                <div class="xp-item" v-if="myStudy[0]">
-                  <div class="xp-job">
-                    {{ myStudy[0]["spec"] }}
-                    <span>- {{ myStudy[0]["university"] }}</span
-                    ><br /><small>{{ myStudy[0]["location"] }}</small>
-                  </div>
-                  <div class="xp-date">
-                    {{ myStudy[0]["from"].substring(0, 7) }} -
-                    {{ myStudy[0]["to"].substring(0, 7) }}
-                  </div>
-                  <div class="xp-detail">
-                    <ul>
-                      <li>
-                        {{ myStudy[0]["disc"] }}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="xp-item" v-if="myStudy[1]">
-                  <div class="xp-job">
-                    {{ myStudy[1]["spec"] }}
-                    <span>- {{ myStudy[1]["university"] }}</span
-                    ><br /><small>{{ myStudy[1]["location"] }}</small>
-                  </div>
-                  <div class="xp-date">
-                    {{ myStudy[1]["from"].substring(0, 7) }} -
-                    {{ myStudy[1]["to"].substring(0, 7) }}
-                  </div>
-                  <div class="xp-detail">
-                    <ul>
-                      <li>
-                        {{ myStudy[1]["disc"] }}
-                      </li>
-                    </ul>
+                <div v-for="study in myStudy" :key="study">
+                  <div class="xp-item" v-if="study">
+                    <div class="xp-job">
+                      {{ study["spec"] }}
+                      <span>- {{ study["university"] }}</span
+                      ><br /><small>{{ study["location"] }}</small>
+                    </div>
+                    <div class="xp-date">
+                      {{ study["from"].substring(0, 7) }} -
+                      {{ study["to"].substring(0, 7) }}
+                    </div>
+                    <div class="xp-detail">
+                      <ul>
+                        <li>
+                          {{ study["disc"] }}
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-                <div class="xp-item" v-if="myStudy[2]">
-                  <div class="xp-job">
-                    {{ myStudy[2]["spec"] }}
-                    <span>- {{ myStudy[2]["university"] }}</span
-                    ><br /><small>{{ myStudy[2]["location"] }}</small>
-                  </div>
-                  <div class="xp-date">
-                    {{ myStudy[2]["from"].substring(0, 7) }} -
-                    {{ myStudy[2]["to"].substring(0, 7) }}
-                  </div>
-                  <div class="xp-detail">
-                    <ul>
-                      <li>
-                        {{ myStudy[2]["disc"] }}
-                      </li>
-                    </ul>
+              </div>
+            </section>
+            <section
+              class="resume__section resume__experience"
+              v-if="mycourse[0]"
+            >
+              <div class="resume__content">
+                <div class="resume__section-title">
+                  <i class="fa fa-atom"></i>
+                  <h2>Courses</h2>
+                </div>
+                <div v-for="course in mycourse" :key="course">
+                  <div class="xp-item" v-if="course">
+                    <div class="xp-job">
+                      {{ course["coursetitle"] }}
+                      <span>- {{ course["platform"] }}</span
+                      ><br /><small>{{ course["location"] }}</small>
+                    </div>
+                    <div class="xp-date">
+                      {{ course["from"].substring(0, 7) }} -
+                      {{ course["to"].substring(0, 7) }}
+                    </div>
+                    <div class="xp-detail">
+                      <ul>
+                        <li>
+                          {{ course["disc"] }}
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -283,6 +249,9 @@ export default {
     },
     myjob() {
       return this.$store.state.jobs;
+    },
+    mycourse() {
+      return this.$store.state.course;
     },
     myStudy() {
       return this.$store.state.study;
