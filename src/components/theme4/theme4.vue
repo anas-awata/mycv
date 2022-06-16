@@ -203,7 +203,7 @@
                           {{ course["to"].substring(0, 7) }}
                         </div>
                         <div class="resume-position-time">
-                          {{ course["disc"] }}
+                          {{ course["location"] }}
                         </div>
                       </div>
                       <!--//resume-timeline-item-header-->
@@ -419,7 +419,7 @@ $linkColor: v-bind(headingColor);
 
 .resume-position-time {
   font-size: 0.875rem;
-  color: #aab4c3;
+  color: #555;
 }
 
 .resume-position-title {
