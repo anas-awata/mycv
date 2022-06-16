@@ -1,19 +1,19 @@
 <template>
   <div class="navbar">
-    <div class="navbar-brand">
+    <div class="navbar-brand" @click="goHome()">
       <img src="../assets/logo.png" alt="lighting" />
       C<span class="v">V</span>tron
     </div>
     <div id="link-group" class="link-group">
       <ul>
         <li class="nav-link">
-          <router-link class="cvselectorlink" to="/templates">
-            <span class="material-icons">Templates</span>templates</router-link
+          <router-link class="cvselectorlink" to="/">
+            <span class="material-icons">Home</span>Home</router-link
           >
         </li>
         <li class="nav-link">
-          <router-link class="cvselectorlink" to="/">
-            <span class="material-icons">Home</span>Home</router-link
+          <router-link class="cvselectorlink" to="/templates">
+            <span class="material-icons">Templates</span>templates</router-link
           >
         </li>
       </ul>
@@ -33,6 +33,11 @@
 <script>
 export default {
   name: "my-nav",
+  methods: {
+    goHome() {
+      this.$router.push("/");
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -61,6 +66,7 @@ body {
       font-size: 1.7em;
       font-family: cursive;
       font-style: italic;
+      cursor: pointer;
       img {
         height: 80%;
         margin-right: -12px;
@@ -73,6 +79,7 @@ body {
       width: 100%;
       height: 100%;
       justify-content: end;
+      align-items: start;
       transition: 1s;
       ul {
         position: relative;
@@ -104,6 +111,9 @@ body {
         }
       }
     }
+    .router-link-active {
+      color: #222 !important;
+    }
     .mobile-btn {
       display: none;
     }
@@ -122,8 +132,19 @@ body {
       z-index: 30000;
       background-color: #fff;
       top: 0;
+      box-shadow: rgba(0, 0, 0, 0.01) 0px 20px 25px -5px,
+        rgba(0, 0, 0, 0.01) 0px 10px 10px -5px;
+      .navbar-brand {
+        height: 60px;
+        img {
+          margin-right: -5px;
+        }
+      }
     }
   }
+}
+ul {
+  display: none;
 }
 /*body {
     margin: 0;

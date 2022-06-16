@@ -75,13 +75,16 @@
             v-model="jobs[index].from"
           />
         </div>
-        <label for="To" class="form-label"
-          ><i class="fa-solid fa-calendar-alt"> </i> current</label
-        ><input
-          type="checkbox"
-          :checked="jobs[index].to == 'present'"
-          @click="datecurrent(index)"
-        />
+        <div class="current">
+          <label for="To" class="form-label"
+            ><i class="fa-solid fa-calendar-alt"> </i> current</label
+          ><input
+            type="checkbox"
+            class="form-check-input"
+            :checked="jobs[index].to == 'present'"
+            @click="datecurrent(index)"
+          />
+        </div>
         <div class="item5">
           <label for="To" class="form-label"
             ><i class="fa-solid fa-calendar-alt"> </i> To</label
@@ -234,5 +237,14 @@ svg {
   transform: rotate(180deg) translate(15px, 0px);
   transition: all 0.25s ease 0s;
   margin-right: 12px !important;
+}
+.current {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-check-input {
+  background-color: #444 !important;
+  border-color: #000 !important;
 }
 </style>

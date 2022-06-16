@@ -144,11 +144,14 @@ svg {
   margin-right: 10px;
 }
 img {
-  width: 95%;
+  width: 90%;
   margin-bottom: 5%;
   transition: 0.2s linear;
   cursor: pointer;
   border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #04aa6d;
 }
 img:hover {
   opacity: 0.5;

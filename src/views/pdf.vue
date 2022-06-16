@@ -293,16 +293,6 @@ export default {
     margin-bottom: -1px;
   }
 }
-@media (max-width: 768px) {
-  .cvinput {
-    margin-top: 30%;
-    position: static;
-    width: 100%;
-  }
-  .profile {
-    border-left-style: none;
-  }
-}
 .nav-container {
   position: fixed;
   top: 49px;
@@ -315,5 +305,20 @@ export default {
 .navbar {
   background: #333 !important;
   color: #fff;
+}
+@media (max-width: 768px) {
+  .cvinput {
+    margin-top: 30%;
+    position: static;
+    width: 100%;
+    padding-top: 10%;
+  }
+  .profile {
+    border-left-style: none;
+  }
+  .navbar {
+    background: #fff !important;
+    color: #000;
+  }
 }
 </style>

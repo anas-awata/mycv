@@ -2,7 +2,7 @@
   <mynav />
   <div class="home-container">
     <div class="circle"></div>
-    <div class="row">
+    <div class="row myflex">
       <div class="col-md-6 textcv">
         <h1>Create the best CV</h1>
         <p class="disc">
@@ -45,57 +45,72 @@ export default {
 </script>
 <style scoped>
 .home-container {
-}
-body {
   height: 100%;
-  background-image: url(../assets/wave-haikei.svg) !important;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  /*background: #fefefe url(../assets/blurry-gradient-haikei.svg) top center
+    no-repeat !important;
+  background-size: cover;*/
+}
+.myflex {
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(110, 255, 158, 0.8127626050420168) 100%
+  );
 }
 .textcv {
-  font-family: "system-ui";
-  font-size: x-large;
-  margin-top: 10%;
+  margin-top: 20%;
+  font-size: large;
+}
+.disc {
+  white-space: pre-wrap;
+  margin-left: 10px;
 }
 h1 {
-  font-size: xxx-large;
+  font-size: xx-large;
 }
 img {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-  border-radius: 20px;
-  width: 65%;
-  height: 50%;
-  margin-top: 20%;
+  margin-top: 18%;
+  width: 75%;
 }
-.btn {
-  padding: 3% 15%;
-  margin-top: 3%;
-  border-radius: 40px;
-  font-size: 100%;
-}
-@media screen and (max-width: 768px) {
-  img {
-    margin-top: 18%;
-    width: 75%;
+@media screen and (min-width: 768px) {
+  .myflex {
+    height: 100%;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(254, 254, 254, 1) 26%,
+      rgba(110, 255, 158, 0.6923144257703081) 75%
+    );
   }
   .textcv {
-    margin-top: 20%;
-    font-size: large;
-  }
-  .disc {
-    white-space: pre-wrap;
-    margin-left: 10px;
+    font-family: "system-ui";
+    font-size: x-large;
+    margin-top: 10%;
   }
   h1 {
-    font-size: xx-large;
+    font-size: xxx-large;
+  }
+  img {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+      rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    border-radius: 20px;
+    width: 65%;
+    height: 50%;
+    margin-top: 20%;
+  }
+  .btn {
+    padding: 3% 15%;
+    margin-top: 3%;
+    border-radius: 40px;
+    font-size: 100%;
   }
 }
-body,
-html {
-  background: #eee !important;
-}
+
 .container {
   text-align: left;
   width: 100%;

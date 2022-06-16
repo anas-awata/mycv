@@ -75,6 +75,16 @@
             v-model="study[index].from"
           />
         </div>
+        <div class="current">
+          <label for="To" class="form-label"
+            ><i class="fa-solid fa-calendar-alt"> </i> current</label
+          ><input
+            type="checkbox"
+            class="form-check-input"
+            :checked="study[index].to == 'present'"
+            @click="datecurrent(index)"
+          />
+        </div>
         <div class="item5">
           <label for="To" class="form-label"
             ><i class="fa-solid fa-calendar-alt"> </i> To</label
@@ -83,6 +93,7 @@
             id="To"
             type="date"
             class="form-control"
+            :disabled="study[index].to == 'present'"
             v-model="study[index].to"
           />
         </div>
@@ -135,6 +146,13 @@ export default {
     deleteMe() {
       this.$emit("deleteStudy");
     },
+    datecurrent(i) {
+      if (this.study[i].to == "present") {
+        this.study[i].to = "";
+      } else {
+        this.study[i].to = "present";
+      }
+    },
   },
   updated() {},
   computed: {
@@ -175,6 +193,10 @@ export default {
 }
 .item7 {
   grid-column: 1/3;
+}
+.item4,
+.item5 {
+  grid-row: 3/4;
 }
 label {
   display: table;
@@ -226,5 +248,14 @@ svg {
   transform: rotate(180deg) translate(15px, 0px);
   transition: all 0.25s ease 0s;
   margin-right: 12px !important;
+}
+.current {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-check-input {
+  background-color: #444 !important;
+  border-color: #000 !important;
 }
 </style>

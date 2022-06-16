@@ -40,11 +40,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height: 100%;
-  background-image: url(./assets/blurry-gradient-haikei.svg) !important;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #fefefe;
 }
 
 body {
@@ -63,7 +62,7 @@ nav {
     white-space: nowrap;
     border-bottom-width: thin;
     font-family: auto;
-    background: ghostwhite;
+    background: #fff;
     width: 50%;
     padding: 5%;
 
@@ -71,7 +70,12 @@ nav {
       color: #42b983;
       border-bottom-width: medium;
       border-color: #42b983;
-      background-color: aliceblue;
+      background: rgb(209, 255, 212);
+      background: radial-gradient(
+        circle,
+        rgba(209, 255, 212, 0.17718837535014) 0%,
+        rgba(230, 255, 234, 0.1295693277310925) 100%
+      );
       width: 50%;
       padding: 5%;
     }
@@ -87,6 +91,7 @@ nav {
   border-radius: 30px;
   position: fixed;
   width: 80%;
+  color: #fefefe;
 }
 .vacp-color-space {
   border-radius: 30px 30px 5px 5px;
@@ -101,12 +106,6 @@ textarea {
 @media (max-width: 768px) {
   .profile {
     border-left-style: none;
-  }
-  body {
-    background: #222 !important;
-  }
-  #app {
-    background: #222 !important;
   }
   .top-fix {
     margin-top: 0;

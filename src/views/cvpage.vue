@@ -39,7 +39,7 @@ export default {
 .container {
   margin-top: 35%;
   border-style: none;
-  color: #eee;
+  color: #222;
 }
 .nav-container {
   background-color: ghostwhite;
